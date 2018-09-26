@@ -7,10 +7,11 @@
       class='tag-item {{item.tagId === 0 ? "active" : ""}}'
     >{{item.tagName}}</text>
   </scroll-view>
-  <view>
-    <view>
-      <image></image>
-      <text></text>
+  <view class='battle-item clearfix'>
+    <view class='team pull-left'>
+      <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
+      <text class='team-name font-hide'>11111</text>
     </view>
+
   </view>
 </view>

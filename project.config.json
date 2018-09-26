@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.3.0",
 	"appid": "wx54c03c9a52e8d1b7",
 	"projectname": "qyl_xcx",
 	"debugOptions": {

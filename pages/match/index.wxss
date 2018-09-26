@@ -19,3 +19,22 @@
   border-color: #C13331;
   color: #C13331;
 }
+.battle-item{
+  margin: 30rpx 0 0;
+  padding: 20rpx 0;
+  background: #fff;
+}
+.team{
+  width: 264rpx;
+  text-align: center;
+}
+.team .team-logo{
+  width: 98rpx;
+  height: 98rpx;
+}
+.team .team-name{
+  display: block;
+  margin: 18rpx 0 0;
+  font-size: 24rpx;
+  color: #333;
+}
