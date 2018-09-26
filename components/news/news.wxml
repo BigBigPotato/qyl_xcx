@@ -1,0 +1,81 @@
+<!--components/news/news.wxml-->
+<wxs module='format' src='../../utils/formatTime.wxs' />
+<view class='news-container'>
+  <view class='news-list' wx:for='{{newsList}}' wx:key='{{item.newsId}}'>
+    <view class='clearfix author-box' wx:if='{{showAuthor}}'>
+      <image src='{{item.headerPic}}' class='avatar'></image>
+      <text class='author-name'>{{item.username}}</text>
+      <text class='author-level'>LV{{item.level}}</text>
+      <text class='up-time'>time</text>
+    </view>
+    <!-- 视频 -->
+    <block wx:if='{{item.newsStyle === 4}}'>
+      <video src='{{item.imgUrl}}' class='video'></video>
+    </block>
+    <!-- 纯图 -->
+    <block wx:if='{{item.newsStyle === 3}}'>
+      <!-- 多图 -->
+      <view wx:if='{{item.forumImgs.length > 2}}'>
+        <view
+          wx:for='{{item.forumImgs}}'
+          wx:key='{{index}}'
+          wx:for-item='img'
+          style='background-image:url({{img.imgUrl}})'
+          wx:if='{{index < 3}}'
+          class='news-image'
+        ></view>
+      </view>
+      <!-- 一图 -->
+      <view wx:else>
+        <view
+          style='background-image:url({{item.imgUrl ? item.imgUrl : item.forumImgs[0]}})'
+          class='only-one-img'
+        ></view>
+      </view>
+    </block>
+    <!-- 纯字 -->
+    <block wx:if='{{item.newsStyle === 2}}'>
+      <view>
+        <text class='news-title font-hide-two'>{{item.title}}</text>
+      </view>
+    </block>
+    <block wx:if='{{item.newsStyle === 1}}'>
+      <!-- 字+多图 -->
+      <view wx:if='{{item.forumImgs.length > 2}}'>
+        <text class='news-title font-hide-two'>{{item.title}}</text>
+        <view>
+          <view
+            wx:for='{{item.forumImgs}}'
+            wx:key='{{index}}'
+            wx:for-item='img'
+            style='background-image:url({{img.imgUrl}})'
+            wx:if='{{index < 3}}'
+            class='news-image'
+          ></view>
+        </view>
+      </view>
+      <!-- 字+一图 -->
+      <view wx:else class='clearfix one-img'>
+        <text class='news-title font-hide-two pull-left'>{{item.title}}</text>
+        <view
+          style='background-image:url({{item.imgUrl ? item.imgUrl : item.forumImgs[0]}})'
+          class='pull-right news-image'
+        ></view>
+      </view>
+    </block>
+    <view class='info-container clearfix'>
+      <view class='info-box pull-left'>
+        <image src='/statics/images/my_yuedu@3x.png' class='info-icon'></image>
+        <text class='info-name'>{{item.view}}</text>
+      </view>
+      <view class='info-box pull-left'>
+        <image src='/statics/images/my_pinglun@3x.png' class='info-icon'></image>
+        <text class='info-name'>{{item.comments}}</text>
+      </view>
+      <view class='info-box pull-left'>
+        <image src='/statics/images/my_fabushijian@3x.png' class='info-icon'></image>
+        <text class='info-name'>{{format.formatTime(item.createTime,'M-D')}}</text>
+      </view>
+    </view>
+  </view>
+</view>

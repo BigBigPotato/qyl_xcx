@@ -1,0 +1,170 @@
+@import '/statics/wxss/common.wxss';
+/* banner */
+.swiper-box{
+  position: relative;
+}
+.banner{
+  width: 100%;
+  height: 390rpx;
+}
+.banner-img{
+  width: 100%;
+  height: 100%;
+}
+.dots-box{
+  position: absolute;
+  bottom: 10rpx;
+  right: 20rpx;
+}
+.dots{
+  display: inline-block;
+  width: 16rpx;
+  height: 16rpx;
+  margin: 0 10rpx;
+  border-radius: 100%;
+  background: rgba(250, 250, 250, 0.5);
+}
+.dots.active{
+  background: #ffffff;
+}
+/* 四类 */
+.four-menu{
+  margin: 20rpx 0 0;
+  padding: 20rpx 0;
+  background: #ffffff;
+  font-size: 0;
+}
+.menu-list{
+  display: inline-block;
+  width: 25%;
+  font-size: 22rpx;
+  color: #999999;
+  text-align: center;
+}
+.list-icon{
+  width: 110rpx;
+  height: 110rpx;
+}
+.list-title{
+  display: block;
+  margin: 16rpx 0 0;
+}
+/* 球友观点 */
+.point-list{
+  padding: 20rpx 30rpx;
+  border-top: 1px solid #f2f2f2;
+  background: #ffffff;
+  color: #333;
+}
+.point-icon{
+  width: 78rpx;
+  height: 58rpx;
+}
+.vertical-line{
+  width: 1px;
+  height: 58rpx;
+  margin: 0 20rpx;
+  background: #999999;
+}
+.point-swiper{
+  width: 80%;
+  height: 58rpx;
+}
+.point-team{
+  display: flex;
+  width: 40%;
+  font-size: 24rpx;
+  justify-content: center;
+}
+.team-icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.team-name{
+  margin: 12rpx 0 0 10rpx;
+}
+.point-vs{
+  width: 30rpx;
+  height: 20rpx;
+  margin: 12rpx 30rpx 0;
+}
+/* 赛事 */
+.battle-swiper{
+  height: 186rpx;
+  margin: 30rpx 0;
+}
+.battle-item{
+  width: 96%;
+  padding: 10rpx 0 24rpx;
+  background: #ffffff;
+}
+.team{
+  width: 214rpx;
+  text-align: center;
+}
+.team .team-logo{
+  width: 96rpx;
+  height: 96rpx;
+}
+.team .team-name{
+  display: block;
+  margin: 18rpx 0 0;
+  font-size: 24rpx;
+  color: #333;
+}
+.battle-info{
+  width: 192rpx;
+  text-align: center;
+}
+.battle-name,
+.battle-time{
+  font-size: 24rpx;
+}
+.battle-time{
+  margin: 0 0 0 10rpx;
+  color: #C13331;
+}
+.score-floor{
+  margin: 16rpx 0 0;
+}
+.score{
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+.score.left{
+  color: #C13331;
+}
+.score.right{
+  color: #2374e4;
+}
+.hor-line{
+  margin: 0 30rpx;
+}
+.battle-flag{
+  width: 95%;
+  height: 54rpx;
+  margin: 12rpx 0 0;
+}
+/* 列表 */
+.tag-scroll{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 30rpx;
+  overflow:hidden;
+  white-space:nowrap;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 0;
+  background: #ffffff;
+}
+.tag-item{
+  padding: 0 0 20rpx;
+  margin: 0 40rpx 0 0;
+  color: #999999;
+  font-size: 24rpx;
+  border-bottom: 2px solid #ffffff;
+}
+.tag-item.active{
+  border-color: #C13331;
+  color: #C13331;
+}

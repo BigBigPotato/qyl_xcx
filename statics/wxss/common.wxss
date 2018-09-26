@@ -1,0 +1,35 @@
+page{
+  background: #f2f2f2;
+  line-height: 1;
+  color: #333333;
+}
+
+.clearfix{
+  zoom: 1;
+}
+.clearfix:after{
+  display: block;
+  content: '.';
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.pull-left{
+  float: left;
+}
+.pull-right{
+  float: right;
+}
+
+.font-hide{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.font-hide-two{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}

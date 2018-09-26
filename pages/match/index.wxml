@@ -1,0 +1,16 @@
+<!--pages/match/index.wxml-->
+<view>
+  <scroll-view scroll-x='{{true}}' class='tag-scroll'>
+    <text
+      wx:for='{{tagList}}'
+      wx:key='{{item.tagId}}'
+      class='tag-item {{item.tagId === 0 ? "active" : ""}}'
+    >{{item.tagName}}</text>
+  </scroll-view>
+  <view>
+    <view>
+      <image></image>
+      <text></text>
+    </view>
+  </view>
+</view>

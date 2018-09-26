@@ -1,0 +1,126 @@
+<view class="container">
+  <!-- banner -->
+  <view class='swiper-box'>
+    <swiper 
+      autoplay='{{autoplay}}' 
+      interval='{{interval}}' 
+      circular='{{circular}}' 
+      current='{{currentIndex}}' 
+      class='banner'
+      bindchange='swiperChange'
+    >
+      <swiper-item wx:for='{{banner}}' wx:key='{{index}}'>
+        <image src='{{item.bannerPic}}' class='banner-img'></image>
+      </swiper-item>
+    </swiper>
+    <view class='dots-box'>
+      <view class='dots{{currentIndex === index ? " active" : ""}}' wx:for='{{banner}}' wx:key='{{index}}'></view>
+    </view>
+  </view>
+  <!-- 四类 -->
+  <view class='four-menu'>
+    <view class='menu-list' wx:for='{{menuList}}' wx:key='{{index}}'>
+      <image src='{{item.iconPath}}' class='list-icon'></image>
+      <text class='list-title'>{{item.name}}</text>
+    </view>
+  </view>
+  <!-- 球友观点 -->
+  <view class='point-list clearfix'>
+    <image src='/statics/images/home/home_qiuyouguandian@3x.png' class='point-icon pull-left'></image>
+    <view class='vertical-line pull-left'></view>
+    <swiper 
+      autoplay='{{autoplay}}' 
+      interval='{{3000}}' 
+      circular='{{circular}}' 
+      vertical='{{true}}'
+      class='point-swiper pull-left'
+    >
+      <swiper-item class='clearfix' wx:for='{{pointList}}' wx:key='{{item.matchId}}'>
+        <view class='point-team clearfix pull-left'>
+          <image src='/statics/images/icon_team_default.png' class='team-icon pull-left'></image>
+          <text class='team-name font-hide pull-left'>{{item.homeTeamName}}</text>
+        </view>
+        <image src='/statics/images/home/vs@3x.png' class='point-vs pull-left'></image>
+        <view class='point-team clearfix pull-left'>
+          <image src='/statics/images/icon_team_default.png' class='team-icon pull-left'></image>
+          <text class='team-name font-hide pull-left'>{{item.visitTeamName}}</text>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 精选赛事 -->
+  <wxs module='format' src='../../utils/formatTime.wxs' />
+  <swiper 
+    previous-margin='50rpx'
+    next-margin='50rpx'
+    class='battle-swiper'
+  >
+    <swiper-item wx:for='{{topMatchsList}}' wx:key='{{item.matchId}}'>
+      <view class='battle-item clearfix'>
+        <view class='team pull-left'>
+          <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
+          <text class='team-name font-hide'>{{item.homeNm}}</text>
+        </view>
+        <view class='battle-info pull-left'>
+          <block wx:if='{{item.matchStatus === 1 || item.matchStatus === 9 || item.matchStatus === 13}}'>
+          <!-- 未开始 -->
+            <view>
+              <text class='battle-name'>{{item.eventNm}}</text>
+            </view>
+            <view>
+              <text class='battle-time'>{{format.formatTime(item.matchStartTime * 1000,'Y-M-D')}}</text>
+            </view>
+            <image src='{{battleFlag[0]}}' class='battle-flag'></image>
+          </block>
+          <block wx:if='{{item.matchStatus >= 2 && item.matchStatus <= 7}}'>
+          <!--已开始  -->
+            <view>
+              <text class='battle-name'>{{item.eventNm}}</text>
+              <text class='battle-time'>{{format.formatTime(item.matchStartTime * 1000,'h:m')}}</text>
+            </view>
+            <view class='score-floor'>
+              <text class='score left'>{{item.homeScore}}</text>
+              <text class='hor-line'>-</text>
+              <text class='score right'>{{item.awayScore}}</text>
+            </view>
+            <image src='{{battleFlag[1]}}' class='battle-flag'></image>
+          </block>
+          <block wx:if='{{item.matchStatus === 8}}'>
+          <!--已结束  -->
+            <view>
+              <text class='battle-name'>{{item.eventNm}}</text>
+            </view>
+            <view class='score-floor'>
+              <text class='score'>{{item.homeScore}}</text>
+              <text class='hor-line'>-</text>
+              <text class='score'>{{item.awayScore}}</text>
+            </view>
+            <image src='{{battleFlag[2]}}' class='battle-flag'></image>
+          </block>
+        </view>
+        <view class='team pull-left'>
+          <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
+          <text class='team-name font-hide'>{{item.awayNm}}</text>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!-- 列表 -->
+  <scroll-view class='tag-scroll' scroll-x='{{true}}'>
+    <text 
+      wx:for='{{tagList}}' 
+      wx:key='{{item.tagId}}' 
+      class='tag-item {{index === activeTagIndex ? "active" : ""}}'
+      data-id='{{item.tagId}}'
+      data-index='{{index}}'
+      catchtap='changeTag'
+    >{{item.tagName}}</text>
+  </scroll-view>
+  <view 
+    wx:for='{{tagList}}' 
+    wx:key='{{item.tagId}}'
+    hidden='{{!(index === activeTagIndex)}}'
+  >
+    <news-component news-list='{{newsList}}' show-author='{{false}}'></news-component>
+  </view>
+</view>

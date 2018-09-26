@@ -1,0 +1,21 @@
+/* pages/match/index.wxss */
+@import '/statics/wxss/common.wxss';
+.tag-scroll{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 30rpx;
+  overflow:hidden;
+  white-space:nowrap;
+  background: #fff;
+}
+.tag-item{
+  margin: 0 40rpx 0 0;
+  padding: 0 0 16rpx;
+  font-size: 24rpx;
+  color: #999;
+  border-bottom: 2px solid #fff;
+}
+.tag-item.active{
+  border-color: #C13331;
+  color: #C13331;
+}

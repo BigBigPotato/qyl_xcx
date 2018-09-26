@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/match/index",
+    "pages/forum/index",
+    "pages/users/index",
+    "components/news/news"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#C13331",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./statics/images/navBottom/dilan-home-hui@3x.png",
+        "selectedIconPath": "./statics/images/navBottom/dilan-home-hong@3x.png"
+      },
+      {
+        "pagePath": "pages/match/index",
+        "text": "赛事",
+        "iconPath": "./statics/images/navBottom/dilan-saishi-hui@3x.png",
+        "selectedIconPath": "./statics/images/navBottom/dilan-saishi-hong@3x.png"
+      },
+      {
+        "pagePath": "pages/forum/index",
+        "text": "论坛",
+        "iconPath": "./statics/images/navBottom/dilan-luntan-hui@3x.png",
+        "selectedIconPath": "./statics/images/navBottom/dilan-luntan-hong@3x.png"
+      },
+      {
+        "pagePath": "pages/users/index",
+        "text": "我的",
+        "iconPath": "./statics/images/navBottom/dilan-wode-hui@3x.png",
+        "selectedIconPath": "./statics/images/navBottom/dilan-wode-hong@3x.png"
+      }
+    ]
+  }
+}
