@@ -1,7 +1,12 @@
 <!--components/news/news.wxml-->
 <wxs module='format' src='../../utils/formatTime.wxs' />
-<view class='news-container'>
-  <view class='news-list' wx:for='{{newsList}}' wx:key='{{item.newsId}}'>
+<view class='news-container' wx:for='{{newsList}}' wx:key='{{index}}' wx:for-item='list'>
+  <navigator
+    url='/pages/article/index?id={{item.newsId}}'
+    wx:for='{{list}}'
+    wx:key='{{item.newsId}}'
+    class='news-list'
+  >
     <view class='clearfix author-box' wx:if='{{showAuthor}}'>
       <image src='{{item.headerPic}}' class='avatar'></image>
       <text class='author-name'>{{item.username}}</text>
@@ -77,5 +82,5 @@
         <text class='info-name'>{{format.formatTime(item.createTime,'M-D')}}</text>
       </view>
     </view>
-  </view>
+  </navigator>
 </view>

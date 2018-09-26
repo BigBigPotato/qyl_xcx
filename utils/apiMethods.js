@@ -47,28 +47,30 @@ const splitUrl = (url) => {
 }
 
 //请求
-const newRequest = (url, method, datas, successcb, errorcb,loadingFlag) => {
-  if(loadingFlag){
-    wx.showLoading({
-      title: ''
-    });
-  }
-  const params = newParams(datas);
-  const path = splitUrl(url);
-  wx.request({
-    url: path,
-    data: params,
-    method: method,
-    dataType: 'json',
-    success: (d) => {
-      if (loadingFlag) wx.hideLoading();
-      successcb(d);
-    },
-    fail: (err) => {
-      if (loadingFlag) wx.hideLoading();
-      errorcb(err);
+const newRequest = (url, datas, loadingFlag) => {
+  return new Promise((resolve,reject) => {
+    if (loadingFlag) {
+      wx.showLoading({
+        title: ''
+      });
     }
-  })
+    const params = newParams(datas);
+    const path = splitUrl(url);
+    wx.request({
+      url: path,
+      data: params,
+      method: 'GET',
+      dataType: 'json',
+      success: (d) => {
+        if (loadingFlag) wx.hideLoading();
+        resolve(d);
+      },
+      fail: (err) => {
+        if (loadingFlag) wx.hideLoading();
+        reject(err);
+      }
+    });
+  });
 }
 
 module.exports = {

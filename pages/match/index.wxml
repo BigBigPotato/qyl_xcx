@@ -1,17 +1,66 @@
 <!--pages/match/index.wxml-->
+<wxs module='format' src='../../utils/formatTime.wxs' />
 <view>
   <scroll-view scroll-x='{{true}}' class='tag-scroll'>
     <text
       wx:for='{{tagList}}'
       wx:key='{{item.tagId}}'
-      class='tag-item {{item.tagId === 0 ? "active" : ""}}'
+      class='tag-item {{item.tagId === activeTagId ? "active" : ""}}'
+      data-id='{{item.tagId}}'
+      data-index='{{index}}'
+      catchtap='changetag'
     >{{item.tagName}}</text>
   </scroll-view>
-  <view class='battle-item clearfix'>
-    <view class='team pull-left'>
-      <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
-      <text class='team-name font-hide'>11111</text>
+  <view>
+    <view class='battle-item clearfix' wx:for='{{matchesList}}' wx:key='{{item.matchId}}'>
+      <view class='team pull-left'>
+        <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
+        <text class='team-name font-hide'>{{item.homeTeamName}}</text>
+      </view>
+      <view class='battle-info pull-left'>
+        <block wx:if='{{item.matchStatus === 1 || item.matchStatus === 9 || item.matchStatus === 13}}'>
+        <!-- 未开始 -->
+          <view>
+            <text class='battle-name'>{{item.eventShortName}}</text>
+          </view>
+          <text class='flag-text'>文字、动画即将开始</text>
+          <view>
+            <text class='battle-time'>{{format.formatTime(item.startGameTime * 1000,'M-D h:m')}}</text>
+          </view>
+          <image src='/statics/images/match/{{collectImg[item.isCollect]}}' class='battle-flag'></image>
+        </block>
+        <block wx:if='{{item.matchStatus >= 2 && item.matchStatus <= 7}}'>
+        <!--已开始  -->
+          <view>
+            <text class='battle-name'>{{item.eventShortName}}</text>
+            <text class='battle-time active'>{{format.formatTime(item.startGameTime * 1000,'h:m')}}</text>
+          </view>
+          <text class='flag-text active'>文字、动画直播中</text>
+          <view class='score-floor'>
+            <text class='score left'>{{item.homeTeamScore}}</text>
+            <text class='hor-line'>-</text>
+            <text class='score right'>{{item.visitTeamScore}}</text>
+          </view>
+          <image src='/statics/images/match/{{collectImg[item.isCollect]}}' class='battle-flag'></image>
+        </block>
+        <block wx:if='{{item.matchStatus === 8}}'>
+        <!--已结束  -->
+          <view>
+            <text class='battle-name'>{{item.eventShortName}}</text>
+          </view>
+          <text class='flag-text'>直播已结束</text>
+          <view class='score-floor'>
+            <text class='score'>{{item.homeTeamScore}}</text>
+            <text class='hor-line'>-</text>
+            <text class='score'>{{item.visitTeamScore}}</text>
+          </view>
+          <image src='/statics/images/match/{{collectImg[item.isCollect]}}' class='battle-flag'></image>
+        </block>
+      </view>
+      <view class='team pull-left'>
+        <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
+        <text class='team-name font-hide'>{{item.visitTeamName}}</text>
+      </view>
     </view>
-
   </view>
 </view>

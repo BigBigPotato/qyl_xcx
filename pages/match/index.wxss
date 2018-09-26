@@ -20,7 +20,7 @@
   color: #C13331;
 }
 .battle-item{
-  margin: 30rpx 0 0;
+  margin: 20rpx 0 0;
   padding: 20rpx 0;
   background: #fff;
 }
@@ -37,4 +37,48 @@
   margin: 18rpx 0 0;
   font-size: 24rpx;
   color: #333;
+}
+.battle-info{
+  width: 222rpx;
+  text-align: center;
+}
+.battle-name,
+.battle-time{
+  font-size: 24rpx;
+}
+.battle-time{
+  margin: 0 0 0 10rpx;
+  color: #999;
+}
+.battle-time.active{
+  color: #C13331;
+}
+.flag-text{
+  color: #999;
+  font-size: 16rpx;
+}
+.flag-text.active{
+  color: #2374e4;
+}
+.score-floor{
+  margin: 16rpx 0 0;
+}
+.score{
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+}
+.score.left{
+  color: #C13331;
+}
+.score.right{
+  color: #2374e4;
+}
+.hor-line{
+  margin: 0 30rpx;
+}
+.battle-flag{
+  width: 30rpx;
+  height: 34rpx;
+  margin: 12rpx 0 0;
 }

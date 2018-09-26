@@ -12,7 +12,7 @@ Page({
     newsList: [],
     activeTagIndex: 0,
     activeTagId: 0,
-    page: 1,
+    page: 0,
     limit: 10,
     menuList: [
       { iconPath: '/statics/images/home/home_guanfang@3x.png', name: '官方发布' },
@@ -31,7 +31,7 @@ Page({
     this.getPoint();
   },
   getIndex () {
-    apiMethods.newRequest('index', 'GET', {}, (d) => {
+    apiMethods.newRequest('index', {}).then((d) => {
       // console.log(d.data);
       let rs = d.data.data;
       if (d.data.code === '0') {
@@ -44,7 +44,7 @@ Page({
 
         this.getTagList();
       }
-    }, (err) => {
+    }).catch((err) => {
       console.log(err);
     });
   },
@@ -54,7 +54,7 @@ Page({
     paramter.opid = 1;
     paramter.page = 1;
     paramter.limit = 4;
-    apiMethods.newRequest('eventViewHall', 'GET', paramter, (d) => {
+    apiMethods.newRequest('eventViewHall', paramter).then((d) => {
       // console.log(d.data);
       let rs = d.data.data;
       if (d.data.code === '0') {
@@ -62,18 +62,15 @@ Page({
           pointList: rs.matches
         });
       }
-    }, (err) => {
+    }).catch((err) => {
       console.log(err);
     });
   },
   //上拉加载
   onReachBottom () {
     let page = this.data.page;
-    this.setData({
-      page: page + 1
-    });
     wx.showLoading({
-      title:'',
+      title:'正在加载',
       mask:true
     });
     setTimeout(()=>{
@@ -102,17 +99,20 @@ Page({
     let paramter = {},
         datas = this.data;
     paramter.opid = datas.activeTagId;
-    paramter.page = datas.page;
+    paramter.page = datas.page + 1;
     paramter.limit = datas.limit;
-    apiMethods.newRequest('officialTaglist', 'GET', paramter, (d) => {
+    apiMethods.newRequest('officialTaglist', paramter).then((d) => {
       // console.log(d.data);
       let rs = d.data.data;
       if (d.data.code === '0') {
         this.setData({
-          newsList: datas.newsList.concat(rs.newsList)
+          ['newsList[' + datas.page + ']']: rs.newsList
+        });
+        this.setData({
+          page: paramter.page
         });
       }
-    }, (err) => {
+    }).catch((err) => {
       console.log(err);
     });
   },

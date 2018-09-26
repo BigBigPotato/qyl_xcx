@@ -116,11 +116,5 @@
       catchtap='changeTag'
     >{{item.tagName}}</text>
   </scroll-view>
-  <view 
-    wx:for='{{tagList}}' 
-    wx:key='{{item.tagId}}'
-    hidden='{{!(index === activeTagIndex)}}'
-  >
-    <news-component news-list='{{newsList}}' show-author='{{false}}'></news-component>
-  </view>
+  <news-component news-list='{{newsList}}' show-author='{{false}}'></news-component>
 </view>

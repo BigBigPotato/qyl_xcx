@@ -4,7 +4,8 @@
     "pages/match/index",
     "pages/forum/index",
     "pages/users/index",
-    "components/news/news"
+    "components/news/news",
+    "pages/article/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
