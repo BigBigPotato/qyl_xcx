@@ -9,8 +9,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#C13331",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#999999",
@@ -28,18 +28,6 @@
         "text": "赛事",
         "iconPath": "./statics/images/navBottom/dilan-saishi-hui@3x.png",
         "selectedIconPath": "./statics/images/navBottom/dilan-saishi-hong@3x.png"
-      },
-      {
-        "pagePath": "pages/forum/index",
-        "text": "论坛",
-        "iconPath": "./statics/images/navBottom/dilan-luntan-hui@3x.png",
-        "selectedIconPath": "./statics/images/navBottom/dilan-luntan-hong@3x.png"
-      },
-      {
-        "pagePath": "pages/users/index",
-        "text": "我的",
-        "iconPath": "./statics/images/navBottom/dilan-wode-hui@3x.png",
-        "selectedIconPath": "./statics/images/navBottom/dilan-wode-hong@3x.png"
       }
     ]
   }

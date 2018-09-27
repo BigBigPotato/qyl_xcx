@@ -1,2 +1,48 @@
 <!--pages/article/index.wxml-->
-<text>pages/article/index.wxml</text>
+<wxs module='util' src='../../utils/util.wxs'/>
+<view>
+  <view class='article-msg'>
+    <block wx:if='{{forumDetail.channelName !== "官方发布"}}'>
+      <view class='author-info'>
+        <image
+          src='{{forumDetail.headerPic ? forumDetail.headerPic : "/statics/images/defaultAvatar.png"}}'
+          class='avatar'
+        ></image>
+        <view>
+          <view>
+            <text class='author-name'>{{forumDetail.username}}</text>
+            <text class='author-level'>LV{{forumDetail.level}}</text>
+          </view>
+          <view class='mt20'>
+            <text class='mr20'>帖子 {{forumDetail.articleNum}}</text>
+            <text>粉丝 {{forumDetail.fansNum}}</text>
+          </view> 
+        </view>
+        <view class='follow-btn-box'>
+          <button class='follow-btn' wx:if='{{forumDetail.isAttention === 0}}'>+ 关注</button>
+          <button class='follow-btn active' wx:else>已关注</button>
+        </view>
+      </view>
+    </block>
+    <view class='title-box'>
+      <text>【{{forumDetail.channelName}}】</text>
+      <text>{{forumDetail.title}}</text>
+    </view>
+    <view class='clearfix up-time'>
+      <text class='pull-left'>{{forumDetail.createTime}}</text>
+      <text class='pull-right'>阅读数 {{forumDetail.view}}</text>
+    </view>
+    <view class='content'>{{util.filterHtml(forumDetail.content)}}</view>
+    <view class='bottom-info'>
+      <view>
+        <view>来源：{{forumDetail.comeFrom}}</view>
+        <view class='mt10'>声明：原创版权所有 违者必究</view>
+      </view>
+      <view class='collect'>
+        <image src='/statics/images/luntan_wujiaoxing@3x.png' class='collect-icon'></image>
+        <text>{{forumDetail.collects}}</text>
+      </view>
+    </view>
+    <button class='reward'>打赏</button>
+  </view>
+</view>

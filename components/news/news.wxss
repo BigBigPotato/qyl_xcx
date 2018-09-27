@@ -26,11 +26,6 @@
   font-size: 28rpx;
   color: #333;
 }
-.author-level{
-  padding: 3rpx 10rpx;
-  border: 1px solid #999;
-  border-radius: 20rpx;
-}
 .up-time{
   flex-grow: 1;
   display: flex;

@@ -36,13 +36,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "match",
 					"pathName": "pages/match/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "article",
+					"pathName": "pages/article/index"
 				}
 			]
 		}

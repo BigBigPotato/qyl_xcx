@@ -1,0 +1,6 @@
+module.exports = {
+  filterHtml: function(str){
+    var reg = getRegExp("<\/?[^>]*>", "g");
+    if (str) return str.replace(reg, '');
+  }
+}

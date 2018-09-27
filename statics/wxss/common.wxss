@@ -33,3 +33,12 @@ page{
   -webkit-box-orient:vertical;
   -webkit-line-clamp:2;
 }
+
+
+
+.author-level{
+  padding: 0rpx 10rpx;
+  border: 1px solid #999;
+  border-radius: 20rpx;
+  font-size: 18rpx;
+}

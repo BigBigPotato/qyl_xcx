@@ -2,5 +2,7 @@
   "usingComponents":{
     "news-component":"/components/news/news"
   },
-  "onReachBottomDistance": 1
+  "onReachBottomDistance": 1,
+  "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
 }

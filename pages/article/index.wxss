@@ -1,1 +1,90 @@
 /* pages/article/index.wxss */
+@import '/statics/wxss/common.wxss';
+.article-msg{
+  padding: 20rpx 30rpx;
+  background: #fff;
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #333;
+}
+.author-info{
+  display: flex;
+  align-items: center;
+  margin:0 0 30rpx;
+  font-size: 20rpx;
+  color: #999;
+}
+.avatar{
+  width: 70rpx;
+  height: 70rpx;
+  margin: 0 14rpx 0 0;
+  border-radius: 100%;
+}
+.author-name{
+  margin: 0 20rpx 0 0;
+  color: #333;
+  font-size: 28rpx;
+}
+.mt20{
+  margin: 20rpx 0 0;
+}
+.mt10{
+  margin: 10rpx 0 0;
+}
+.mr20{
+  margin: 0 20rpx 0 0;
+}
+.follow-btn-box{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.follow-btn{
+  width: 132rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0;
+  padding: 0;
+  font-size: 28rpx;
+  background: #2374e4;
+  color: #fff;
+}
+.follow-btn.active{
+  background: #999;
+}
+.up-time{
+  margin: 14rpx 0 0;
+  font-size: 20rpx;
+  color: #999;
+}
+.content{
+  margin: 40rpx 0 30rpx;
+  word-wrap: break-word;
+  letter-spacing: 2px;
+}
+.bottom-info{
+  display: flex;
+  align-items: center;
+  font-size: 20rpx;
+  color: #999;
+}
+.collect{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.collect-icon{
+  width: 20rpx;
+  height: 20rpx;
+  margin: 0 10rpx 0 0;
+}
+.reward{
+  width: 130rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  margin: 22rpx auto 0;
+  border-radius: 25rpx;
+  font-size: 20rpx;
+  background: #C13331;
+  color: #fff;
+}
