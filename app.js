@@ -35,5 +35,13 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  // 传参object --> string
+  splitParams(obj) {
+    console.log(obj);
+    let arr = [];
+    for(let i in obj){
+      console.log(i);
+    }
   }
 })

@@ -2,10 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/match/index",
-    "pages/forum/index",
-    "pages/users/index",
     "components/news/news",
-    "pages/article/index"
+    "pages/article/index",
+    "pages/article/reward/reward",
+    "pages/login"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,5 +1,6 @@
 // pages/article/index.js
-var apiMethods = require('../../utils/apiMethods.js');
+var apiMethods = require('../../utils/apiMethods.js'),
+    app = getApp();
 Page({
 
   /**
@@ -10,7 +11,10 @@ Page({
     newsId:'',
     forumDetail: {},
     commentsList:[],
-    hotCommentList:[]
+    hotCommentList: [],
+    headerPic: '',
+    authorName: '',
+    authorId: ''
   },
 
   /**
@@ -22,6 +26,7 @@ Page({
     });
     this.getArticle();
   },
+  // 文章信息
   getArticle () {
     let paramter = {},
         datas = this.data;
@@ -34,14 +39,35 @@ Page({
         this.setData({
           forumDetail: rs.forumDetail,
           commentsList: rs.commentsList,
-          hotCommentList: rs.hotCommentList
+          hotCommentList: rs.hotCommentList,
+          headerPic: rs.forumDetail.headerPic ? rs.forumDetail.headerPic : "/statics/images/defaultAvatar.png",
+          authorName: rs.forumDetail.username ? rs.forumDetail.username : '过客',
+          authorId: rs.forumDetail.userId
         });
       }
     }).catch((err) => {
       console.log(err);
     });
   },
-  dealHtml (str) {
-
+  // 打赏
+  toReward () {
+    let userId = wx.getStorageSync('userId'),
+        datas = this.data,
+        params = {
+          headerPic: datas.headerPic,
+          authorName: datas.authorName,
+          authorId: datas.authorId,
+          newsId: datas.newsId
+        };
+    params = app.splitParams(params);
+    if(userId){
+      wx.navigateTo({
+        url: `./reward/reward?${params}`
+      })
+    }else{
+      wx.navigateTo({
+        url: '../login',
+      })
+    }
   }
 })

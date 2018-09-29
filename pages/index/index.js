@@ -89,6 +89,7 @@ Page({
     let dataset = e.target.dataset;
     this.setData({
       newsList: [],
+      page:0,
       activeTagIndex: dataset.index,
       activeTagId: dataset.id
     });

@@ -1,17 +1,14 @@
 <!--pages/article/index.wxml-->
 <wxs module='util' src='../../utils/util.wxs'/>
-<view>
+<view class='main-container'>
   <view class='article-msg'>
     <block wx:if='{{forumDetail.channelName !== "官方发布"}}'>
       <view class='author-info'>
-        <image
-          src='{{forumDetail.headerPic ? forumDetail.headerPic : "/statics/images/defaultAvatar.png"}}'
-          class='avatar'
-        ></image>
+        <image src='{{headerPic}}' class='avatar'></image>
         <view>
           <view>
-            <text class='author-name'>{{forumDetail.username}}</text>
-            <text class='author-level'>LV{{forumDetail.level}}</text>
+            <text class='author-name'>{{username}}</text>
+            <text class='author-level'>LV{{forumDetail.level ? forumDetail.level : 0}}</text>
           </view>
           <view class='mt20'>
             <text class='mr20'>帖子 {{forumDetail.articleNum}}</text>
@@ -43,6 +40,23 @@
         <text>{{forumDetail.collects}}</text>
       </view>
     </view>
-    <button class='reward'>打赏</button>
+    <button class='reward' catchtap='toReward'>打赏</button>
+  </view>
+  <view class='comment-box' wx:if='{{hotCommentList.length}}'>
+    <view class='comment-head'>
+      <text class='active'>最热回复</text>
+    </view>
+    <comment-component comment-list='{{hotCommentList}}'></comment-component>
+  </view>
+  <view class='comment-box' wx:if='{{commentsList.length}}'>
+    <view class='comment-head'>
+      <text class='active'>全部跟帖</text>
+      <text>只看楼主</text>
+    </view>
+    <comment-component comment-list='{{commentsList}}'></comment-component>
+  </view>
+  <view class='comment-input-box'>
+    <input placeholder='评论'  class='comment-input'></input>
+    <button class='comment-btn'>发送</button>
   </view>
 </view>

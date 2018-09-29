@@ -1,0 +1,24 @@
+<!--components/comment/comment.wxml-->
+<view class='comment-list'>
+  <view class='list-item' wx:for='{{commentList}}' wx:key='{{item.commentId}}'>
+    <view class='comment-user'>
+      <image src='{{item.headerPic ? item.headerPic : "/statics/images/defaultAvatar.png"}}' class='avatar'></image>
+      <view>
+        <text class='author-name'>{{item.username ? item.username : '过客'}}</text>
+        <text class='author-level'>LV{{item.level ? item.level : 0}}</text>
+        <view class='up-time'>{{item.createTime}}</view>
+      </view> 
+      <view class='thumb-up'>
+        <image src='/statics/images/{{thumbIcon[item.isHit]}}' class='thumb-up-icon'></image>
+        <text>{{item.hitNum}}</text>
+      </view>
+    </view>
+    <text class='comment-content'>{{item.content}}</text>
+    <view class='comment-reply' wx:if='{{item.followCommentList.length}}'>
+      <view class='reply-item'  wx:for='{{item.followCommentList}}' wx:for-item='reply' wx:key='{{reply.commentId}}'>
+        <text class='reply-name'>{{reply.followerName}}：</text>
+        <text>{{reply.content}}</text>
+      </view>
+    </view>
+  </view>
+</view>

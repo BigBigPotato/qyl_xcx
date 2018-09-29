@@ -1,0 +1,54 @@
+/* components/comment/comment.wxss */
+@import '/statics/wxss/common.wxss';
+.author-name{
+  margin: 0 20rpx 0 0;
+  color: #333;
+  font-size: 28rpx;
+}
+.up-time{
+  margin: 14rpx 0 0;
+}
+.comment-user{
+  display: flex;
+  align-items: center;
+  margin:0 0 20rpx 0;
+  font-size: 20rpx;
+  color: #999;
+}
+.thumb-up{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.thumb-up-icon{
+  width: 20rpx;
+  height: 20rpx;
+  margin: 0 10rpx 0 0;
+}
+.list-item{
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.list-item:last-child{
+  border: none;
+}
+.comment-content{
+  font-size: 28rpx;
+  color: #333;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+.comment-reply{
+  margin: 20rpx;
+  padding: 0 20rpx;
+  background: #f2f2f2;
+  border-radius: 8rpx;
+}
+.reply-item{
+  padding: 20rpx 0;
+  color: #333;
+  font-size: 26rpx;
+}
+.reply-name{
+  color: #2374e4;
+}

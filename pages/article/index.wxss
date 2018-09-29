@@ -1,5 +1,8 @@
 /* pages/article/index.wxss */
 @import '/statics/wxss/common.wxss';
+.main-container{
+  padding: 0 0 140rpx;
+}
 .article-msg{
   padding: 20rpx 30rpx;
   background: #fff;
@@ -13,12 +16,6 @@
   margin:0 0 30rpx;
   font-size: 20rpx;
   color: #999;
-}
-.avatar{
-  width: 70rpx;
-  height: 70rpx;
-  margin: 0 14rpx 0 0;
-  border-radius: 100%;
 }
 .author-name{
   margin: 0 20rpx 0 0;
@@ -87,4 +84,44 @@
   font-size: 20rpx;
   background: #C13331;
   color: #fff;
+}
+.comment-box{
+  background: #fff;
+  margin: 20rpx 0 0;
+}
+.comment-head{
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 22rpx;
+  color: #999;
+}
+.comment-head .active{
+  margin: 0 30rpx;
+  color: #C13331;
+}
+.comment-input-box{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding:20rpx 0;
+  background: #fff;
+  font-size: 26rpx;
+  border-top: 1px solid #f2f2f2;
+}
+.comment-input{
+  width: 70%;
+  height: 70rpx;
+  margin: 0 0 0 20rpx;
+  padding: 0 20rpx;
+  border: 1px solid #f2f2f2;
+}
+.comment-btn{
+  width: 16%;
+  height: 70rpx;
+  font-size: 26rpx;
+  background: #2374e4;
+  color: #fff;
+  border: none;
 }

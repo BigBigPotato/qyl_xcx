@@ -42,3 +42,9 @@ page{
   border-radius: 20rpx;
   font-size: 18rpx;
 }
+.avatar{
+  width: 70rpx;
+  height: 70rpx;
+  margin: 0 14rpx 0 0;
+  border-radius: 100%;
+}
