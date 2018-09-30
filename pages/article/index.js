@@ -63,11 +63,11 @@ Page({
     if(userId){
       wx.navigateTo({
         url: `./reward/reward?${params}`
-      })
+      });
     }else{
       wx.navigateTo({
         url: '../login',
-      })
+      });
     }
   }
-})
+});

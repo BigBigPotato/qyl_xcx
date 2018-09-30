@@ -48,3 +48,8 @@ page{
   margin: 0 14rpx 0 0;
   border-radius: 100%;
 }
+.fixed{
+  position: fixed;
+  width: 100%;
+  top: 0;
+}

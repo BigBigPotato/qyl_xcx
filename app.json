@@ -5,7 +5,8 @@
     "components/news/news",
     "pages/article/index",
     "pages/article/reward/reward",
-    "pages/login"
+    "pages/login",
+    "pages/forum/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

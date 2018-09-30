@@ -14,10 +14,11 @@ Page({
     activeTagId: 0,
     page: 0,
     limit: 10,
+    fiexdTagFlag:true,
+    tagOffsetTop:0,
     menuList: [
       { iconPath: '/statics/images/home/home_guanfang@3x.png', name: '官方发布' },
       { iconPath: '/statics/images/home/home_jishisaishi@3x.png', name: '即时赛事' },
-      { iconPath: '/statics/images/home/home_mingrengtang@3x.png', name: '名人堂' },
       { iconPath: '/statics/images/home/home_tupian@3x.png', name: '图库' }
     ],
     battleFlag:[
@@ -29,6 +30,15 @@ Page({
   onLoad () {
     this.getIndex();
     this.getPoint();
+  },
+  getTagOffset() {
+    let query = wx.createSelectorQuery();
+    query.select('.JStagScroll').boundingClientRect();
+    query.exec((res) => {
+      this.setData({
+        tagOffsetTop: res[0].top
+      });
+    });
   },
   getIndex () {
     apiMethods.newRequest('index', {}).then((d) => {
@@ -42,14 +52,15 @@ Page({
           activeTagId: rs.tagNmList[0].tagId,
         });
 
+        this.getTagOffset();
         this.getTagList();
       }
     }).catch((err) => {
       console.log(err);
     });
   },
+  //获取观点
   getPoint () {
-    //获取观点
     let paramter = {};
     paramter.opid = 1;
     paramter.page = 1;
@@ -117,4 +128,40 @@ Page({
       console.log(err);
     });
   },
+  // 页面滚动
+  onPageScroll (e) {
+    let scrollTop = e.scrollTop,
+        tagOffsetTop = this.data.tagOffsetTop,
+        fiexdTagFlag;
+    if (scrollTop > tagOffsetTop){
+      fiexdTagFlag = false;
+    }else{
+      fiexdTagFlag = true;
+    }
+    this.setData({
+      fiexdTagFlag: fiexdTagFlag
+    });
+  },
+  //四类点击
+  menuTap(e) {
+    let clickIndex = e.currentTarget.dataset.index;
+    switch (clickIndex){
+      case 0:
+        wx.pageScrollTo({
+          scrollTop: this.data.tagOffsetTop
+        });
+        // 官方发布
+        break;
+      case 1:
+        // 即时赛事
+        wx.switchTab({
+          url: '../match/index',
+        });
+        break;
+      case 2:
+        // 图库
+
+        break;
+    }
+  }
 });

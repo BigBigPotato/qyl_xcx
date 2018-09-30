@@ -41,7 +41,10 @@ App({
     console.log(obj);
     let arr = [];
     for(let i in obj){
-      console.log(i);
+      //console.log(i);
+      obj[i] = encodeURI(obj[i]);
+      arr.push(i+'='+obj[i])
     }
+    return arr.join('&');
   }
 })

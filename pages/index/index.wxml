@@ -19,7 +19,7 @@
   </view>
   <!-- 四类 -->
   <view class='four-menu'>
-    <view class='menu-list' wx:for='{{menuList}}' wx:key='{{index}}'>
+    <view class='menu-list' wx:for='{{menuList}}' wx:key='{{index}}' catchtap='menuTap' data-index='{{index}}'>
       <image src='{{item.iconPath}}' class='list-icon'></image>
       <text class='list-title'>{{item.name}}</text>
     </view>
@@ -106,7 +106,18 @@
     </swiper-item>
   </swiper>
   <!-- 列表 -->
-  <scroll-view class='tag-scroll' scroll-x='{{true}}'>
+  <scroll-view class='tag-scroll JStagScroll' scroll-x='{{true}}'>
+    <text 
+      wx:for='{{tagList}}' 
+      wx:key='{{item.tagId}}' 
+      class='tag-item {{index === activeTagIndex ? "active" : ""}}'
+      data-id='{{item.tagId}}'
+      data-index='{{index}}'
+      catchtap='changeTag'
+    >{{item.tagName}}</text>
+  </scroll-view>
+  <!-- 隐藏的固定栏 -->
+  <scroll-view class='tag-scroll JStagScroll fixed' scroll-x='{{true}}' hidden='{{fiexdTagFlag}}'>
     <text 
       wx:for='{{tagList}}' 
       wx:key='{{item.tagId}}' 
