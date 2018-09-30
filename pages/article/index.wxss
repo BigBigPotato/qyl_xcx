@@ -31,24 +31,6 @@
 .mr20{
   margin: 0 20rpx 0 0;
 }
-.follow-btn-box{
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-.follow-btn{
-  width: 132rpx;
-  height: 60rpx;
-  line-height: 60rpx;
-  margin: 0;
-  padding: 0;
-  font-size: 28rpx;
-  background: #2374e4;
-  color: #fff;
-}
-.follow-btn.active{
-  background: #999;
-}
 .up-time{
   margin: 14rpx 0 0;
   font-size: 20rpx;

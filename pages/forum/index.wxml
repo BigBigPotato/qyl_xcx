@@ -1,2 +1,16 @@
 <!--pages/forum/index.wxml-->
-<text>pages/forum/index.wxml</text>
+<view>
+  <view class='forum-item-container clearfix'>
+    <view class='forum-item pull-left' wx:for='{{channelList}}' wx:key='{{item.channelId}}'>
+      <image class='item-icon' src='{{item.imgUrl}}'></image>
+      <view>
+        <view class='item-name'>{{item.channelName}}</view>
+        <view>总帖数 {{item.totalNum}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='floor-title'>
+    <view>精彩推荐</view>
+  </view>
+  <news-component news-list='{{newsList}}' show-author='{{true}}'></news-component>
+</view>

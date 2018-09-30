@@ -27,7 +27,6 @@
           <view>
             <text class='battle-time'>{{format.formatTime(item.startGameTime * 1000,'M-D h:m')}}</text>
           </view>
-          <image src='/statics/images/match/{{collectImg[item.isCollect]}}' class='battle-flag'></image>
         </block>
         <block wx:if='{{item.matchStatus >= 2 && item.matchStatus <= 7}}'>
         <!--已开始  -->
@@ -41,7 +40,6 @@
             <text class='hor-line'>-</text>
             <text class='score right'>{{item.visitTeamScore}}</text>
           </view>
-          <image src='/statics/images/match/{{collectImg[item.isCollect]}}' class='battle-flag'></image>
         </block>
         <block wx:if='{{item.matchStatus === 8}}'>
         <!--已结束  -->
@@ -54,7 +52,6 @@
             <text class='hor-line'>-</text>
             <text class='score'>{{item.visitTeamScore}}</text>
           </view>
-          <image src='/statics/images/match/{{collectImg[item.isCollect]}}' class='battle-flag'></image>
         </block>
       </view>
       <view class='team pull-left'>

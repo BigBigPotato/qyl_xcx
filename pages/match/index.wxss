@@ -77,8 +77,3 @@
 .hor-line{
   margin: 0 30rpx;
 }
-.battle-flag{
-  width: 30rpx;
-  height: 34rpx;
-  margin: 12rpx 0 0;
-}

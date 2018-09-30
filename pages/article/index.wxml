@@ -15,10 +15,6 @@
             <text>粉丝 {{forumDetail.fansNum}}</text>
           </view> 
         </view>
-        <view class='follow-btn-box'>
-          <button class='follow-btn' wx:if='{{forumDetail.isAttention === 0}}'>+ 关注</button>
-          <button class='follow-btn active' wx:else>已关注</button>
-        </view>
       </view>
     </block>
     <view class='title-box'>

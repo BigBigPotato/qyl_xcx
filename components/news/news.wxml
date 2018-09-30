@@ -11,7 +11,7 @@
       <image src='{{item.headerPic ? item.headerPic : "/statics/images/defaultAvatar.png"}}' class='avatar'></image>
       <text class='author-name'>{{item.username ? item.username : '过客'}}</text>
       <text class='author-level'>LV{{item.level ? item.level : 0}}</text>
-      <text class='up-time'>time</text>
+      <text class='up-time'>{{format.formatTime(item.createTime,'M/D h:m')}}</text>
     </view>
     <!-- 视频 -->
     <block wx:if='{{item.newsStyle === 4}}'>
@@ -33,7 +33,7 @@
       <!-- 一图 -->
       <view wx:else>
         <view
-          style='background-image:url({{item.imgUrl ? item.imgUrl : item.forumImgs[0]}})'
+          style='background-image:url({{item.imgUrl ? item.imgUrl : item.forumImgs[0].imgUrl}})'
           class='only-one-img'
         ></view>
       </view>
@@ -63,12 +63,13 @@
       <view wx:else class='clearfix one-img'>
         <text class='news-title font-hide-two pull-left'>{{item.title}}</text>
         <view
-          style='background-image:url({{item.imgUrl ? item.imgUrl : item.forumImgs[0]}})'
+          style='background-image:url({{item.imgUrl ? item.imgUrl : item.forumImgs[0].imgUrl}})'
           class='pull-right news-image'
         ></view>
       </view>
     </block>
-    <view class='info-container clearfix'>
+    <!-- 首页底部 -->
+    <view class='info-container clearfix' wx:if='{{!showAuthor}}'>
       <view class='info-box pull-left'>
         <image src='/statics/images/my_yuedu@3x.png' class='info-icon'></image>
         <text class='info-name'>{{item.view}}</text>
@@ -79,7 +80,28 @@
       </view>
       <view class='info-box pull-left'>
         <image src='/statics/images/my_fabushijian@3x.png' class='info-icon'></image>
-        <text class='info-name'>{{format.formatTime(item.createTime,'M-D')}}</text>
+        <text class='info-name'>{{format.formatTime(item.createTime,'M/D')}}</text>
+      </view>
+    </view>
+    <!-- 论坛底部 -->
+    <view wx:else class='forum-news-bottom'>
+      <view class='forum-from-container'>
+        <text>来自</text>
+        <text class='forum-from'>{{item.channelName}}</text>
+      </view>
+      <view class='info-container clearfix'>
+        <view class='info-box pull-left'>
+          <image src='/statics/images/luntan_wojiaoxing@3x.png' class='info-icon'></image>
+          <text class='info-name'>{{item.collects}}</text>
+        </view>
+        <view class='info-box pull-left'>
+          <image src='/statics/images/my_pinglun@3x.png' class='info-icon'></image>
+          <text class='info-name'>{{item.comments}}</text>
+        </view>
+        <view class='info-box pull-left'>
+          <image src='/statics/images/my_yuedu@3x.png' class='info-icon'></image>
+          <text class='info-name'>{{item.view}}</text>
+        </view>
       </view>
     </view>
   </navigator>

@@ -29,6 +29,12 @@
         "text": "赛事",
         "iconPath": "./statics/images/navBottom/dilan-saishi-hui@3x.png",
         "selectedIconPath": "./statics/images/navBottom/dilan-saishi-hong@3x.png"
+      },
+      {
+        "pagePath": "pages/forum/index",
+        "text": "论坛",
+        "iconPath": "./statics/images/navBottom/dilan-luntan-hui@3x.png",
+        "selectedIconPath": "./statics/images/navBottom/dilan-luntan-hong@3x.png"
       }
     ]
   }
