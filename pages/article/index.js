@@ -46,6 +46,7 @@ Page({
       // console.log(d.data);
       let rs = d.data.data;
       if (d.data.code === '0') {
+        rs.forumDetail.content = rs.forumDetail.content.replace(/\<img/gi, '<img style="width:100%;height:auto" ');
         this.setData({
           forumDetail: rs.forumDetail,
           ['commentsList[0]']: rs.commentsList,

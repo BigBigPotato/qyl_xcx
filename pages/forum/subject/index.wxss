@@ -1,0 +1,89 @@
+/* pages/forum/subject/index.wxss */
+@import '/statics/wxss/common.wxss';
+.top-header{
+  position: relative;
+  height: 132rpx;
+  font-size: 22rpx;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.shape{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(193,51,49,0.8);
+  z-index: 1;
+}
+.top-content{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  color: #fff;
+}
+.subject-icon{
+  width: 82rpx;
+  height: 82rpx;
+  margin: 0 20rpx 0 0;
+  border-radius: 6rpx;
+}
+.another-msg{
+  flex: 1;
+}
+.forum-title{
+  display: inline-block;
+  margin: 0 0 20rpx;
+  font-size: 28rpx;
+}
+.forum-count-box{
+  display: flex;
+}
+.forum-count{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.top-forum{
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  font-size: 22rpx;
+  color: #333;
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
+}
+.red-tag{
+  padding: 6rpx 12rpx;
+  background: #C13331;
+  color: #fff;
+  border-radius: 8rpx;
+}
+.red-tag:first-child{
+  margin: 0 20rpx 0 0;
+}
+.top-forum-title{
+  flex: 1;
+}
+.comment-head{
+  padding: 20rpx 0;
+  margin: 20rpx 0 0;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 22rpx;
+  color: #999;
+  background: #fff;
+}
+.comment-head-title{
+  padding: 0 0 8rpx 0;
+  margin: 0 0 0 30rpx;
+  border-bottom: 2px solid #fff;
+}
+.comment-head-title.active{
+  color: #C13331;
+  border-color: #C13331;
+}

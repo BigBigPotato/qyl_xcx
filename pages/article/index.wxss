@@ -39,7 +39,6 @@
 .content{
   margin: 40rpx 0 30rpx;
   word-wrap: break-word;
-  letter-spacing: 2px;
   overflow: hidden;
 }
 .bottom-info{

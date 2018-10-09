@@ -33,6 +33,7 @@
   border: none;
 }
 .comment-content{
+  line-height: 1.5;
   font-size: 28rpx;
   color: #333;
   letter-spacing: 2px;

@@ -1,0 +1,40 @@
+<!--pages/forum/subject/index.wxml-->
+<view>
+  <view class='top-header' style='background-image:url({{channelInfo.imgUrl}})'>
+    <view class='shape'></view>
+    <view class='top-content'>
+      <image src='{{channelInfo.imgUrl}}' class='subject-icon'></image>
+      <view class='another-msg'>
+        <text class='forum-title'>{{channelInfo.channelName}}</text>
+        <view class='forum-count-box'>
+          <text>{{channelInfo.title}}</text>
+          <text class='forum-count'>帖子 {{channelInfo.forumCount}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <navigator
+      url='/pages/article/index?id={{item.newsId}}'
+      wx:for='{{topForumList}}'
+      wx:key='{{item.newsId}}'
+      class='top-forum'
+    >
+      <text class='red-tag'>置顶</text>
+      <text class='top-forum-title font-hide'>{{item.title}}</text>
+      <text class='red-tag'>NEW</text>
+    </navigator>
+  </view>
+  <view>
+    <view class='comment-head'>
+      <text
+        wx:for='{{tags}}'
+        wx:key='{{index}}'
+        class='comment-head-title {{item.id === opid ? "active" : ""}}'
+        data-id='{{item.id}}'
+        catchtap='changeTag'
+      >{{item.name}}</text>
+    </view>
+    <news-component news-list='{{channelForumList}}' show-author='{{true}}'></news-component>
+  </view>
+</view>

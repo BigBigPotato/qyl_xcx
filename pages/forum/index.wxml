@@ -1,13 +1,18 @@
 <!--pages/forum/index.wxml-->
 <view>
   <view class='forum-item-container clearfix'>
-    <view class='forum-item pull-left' wx:for='{{channelList}}' wx:key='{{item.channelId}}'>
+    <navigator
+      url='/pages/forum/subject/index?id={{item.channelId}}'
+      class='forum-item pull-left'
+      wx:for='{{channelList}}'
+      wx:key='{{item.channelId}}'
+    >
       <image class='item-icon' src='{{item.imgUrl}}'></image>
       <view>
         <view class='item-name'>{{item.channelName}}</view>
         <view>总帖数 {{item.totalNum}}</view>
       </view>
-    </view>
+    </navigator>
   </view>
   <view class='floor-title'>
     <view>精彩推荐</view>

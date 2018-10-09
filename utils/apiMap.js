@@ -15,5 +15,6 @@ module.exports = {
   "rewardInfo": "api/news/rewardInfo",//打赏积分列表
   "rewardUser": "api/news/rewardUser",//打赏
   "tags":"api/wallpaper/tags",
-  "imgs":"api/wallpaper/imgs",
+  "imgs": "api/wallpaper/imgs",
+  "channelForumList": "api/news/channelForumList",//单个主题的帖子列表(全部、最新、历史)
 }
