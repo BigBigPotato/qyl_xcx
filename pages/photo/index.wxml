@@ -1,0 +1,46 @@
+<!--pages/photo/index.wxml-->
+<wxs module='util' src='../../utils/util.wxs' />
+<view>
+  <view class='search-container'>
+    <view class='search-box'>
+      <icon type='search' color='#999' size='14'></icon>
+      <form class='search-form'>
+        <input
+          type='search'
+          placeholder='搜索'
+          class='search-input'
+          bindinput='searchInput'
+          bindconfirm='searchByKey'
+          value='{{keyword}}'
+        ></input>
+      </form>
+    </view>
+  </view>
+  <view class='search-tag'>
+    <view
+      class='tag-item {{colorArr[util.mathRandom()]}} {{item.id === tagId ? "active" : ""}}'
+      wx:for='{{tags}}'
+      wx:key='{{item.id}}'
+      data-id='{{item.id}}'
+      catchtap='searchByTag'
+    >{{item.tagNm}}</view>
+  </view>
+  <view class='photo-container'>
+    <block wx:for='{{photoList}}' wx:key='{{index}}'>
+      <view class='photo-box' wx:for='{{item}}' wx:key='{{item.id}}'>
+        <view
+          style='background-image:url({{item.imgUrl}});{{index === 0 ? "height:200rpx" : ""}}'
+          class='photo'
+        >
+        </view>
+        <image
+          src='/statics/images/gerenzhongxin_xiazia_xiao@3x.png'
+          class='download-icon'
+          data-src='{{item.imgUrl}}'
+          catchtap='downloadPhoto'
+        ></image>
+      </view>
+      <view class='no-msg' wx:if='{{!item.length}}'>暂无信息</view>
+    </block>
+  </view>  
+</view>

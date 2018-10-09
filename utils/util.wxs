@@ -2,5 +2,9 @@ module.exports = {
   filterHtml: function(str){
     var reg = getRegExp("<\/?[^>]*>", "g");
     if (str) return str.replace(reg, '');
+  },
+  mathRandom: function(){
+    var num = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
+    return num;
   }
 }

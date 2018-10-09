@@ -1,2 +1,25 @@
 <!--pages/article/reward/reward.wxml-->
-<text>pages/article/reward/reward.wxml</text>
+<view class='author'>
+  <image src='{{headerPic}}' class='avatar'></image>
+  <view>{{authorName}}</view>
+</view>
+<view class='reward-integral'>
+  <view>
+    <text class='reward-icon'>打赏</text>
+    <text>打赏鼓励一下</text>
+  </view>
+  <view class='integral-list'>
+    <view
+      class='list-item {{intergralIndex === index ? "active" : ""}}'
+      wx:for='{{rewardList}}'
+      wx:key='{{item.rewardId}}'
+      catchtap='selectIntergral'
+      data-index='{{index}}'
+      data-score='{{item.score}}'
+    >{{item.score}}</view>
+  </view>
+  <view class='reward-num-box clearfix'>
+    <view class='hor-line'></view>
+    <text class='reward-num pull-left'>{{rewardCount}}人已打赏</text>
+  </view>
+</view>

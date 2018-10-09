@@ -79,7 +79,6 @@ Page({
   },
   //上拉加载
   onReachBottom () {
-    let page = this.data.page;
     wx.showLoading({
       title:'正在加载',
       mask:true
@@ -160,7 +159,9 @@ Page({
         break;
       case 2:
         // 图库
-
+        wx.navigateTo({
+          url: '../photo/index',
+        });
         break;
     }
   }

@@ -1,5 +1,4 @@
 <!--pages/article/index.wxml-->
-<wxs module='util' src='../../utils/util.wxs'/>
 <view class='main-container'>
   <view class='article-msg'>
     <block wx:if='{{forumDetail.channelName !== "官方发布"}}'>
@@ -7,7 +6,7 @@
         <image src='{{headerPic}}' class='avatar'></image>
         <view>
           <view>
-            <text class='author-name'>{{username}}</text>
+            <text class='author-name'>{{authorName}}</text>
             <text class='author-level'>LV{{forumDetail.level ? forumDetail.level : 0}}</text>
           </view>
           <view class='mt20'>
@@ -25,15 +24,17 @@
       <text class='pull-left'>{{forumDetail.createTime}}</text>
       <text class='pull-right'>阅读数 {{forumDetail.view}}</text>
     </view>
-    <view class='content'>{{util.filterHtml(forumDetail.content)}}</view>
+    <view class='content'>
+      <rich-text nodes='{{forumDetail.content}}'></rich-text>
+    </view>
     <view class='bottom-info'>
       <view>
         <view>来源：{{forumDetail.comeFrom}}</view>
         <view class='mt10'>声明：原创版权所有 违者必究</view>
       </view>
-      <view class='collect'>
-        <image src='/statics/images/luntan_wujiaoxing@3x.png' class='collect-icon'></image>
-        <text>{{forumDetail.collects}}</text>
+      <view class='collect' catchtap='toCollect'>
+        <image src='/statics/images/{{collectIcon[isCollect]}}' class='collect-icon'></image>
+        <text>{{collects}}</text>
       </view>
     </view>
     <button class='reward' catchtap='toReward'>打赏</button>
@@ -44,15 +45,28 @@
     </view>
     <comment-component comment-list='{{hotCommentList}}'></comment-component>
   </view>
-  <view class='comment-box' wx:if='{{commentsList.length}}'>
-    <view class='comment-head'>
-      <text class='active'>全部跟帖</text>
-      <text>只看楼主</text>
+  <view class='comment-box' wx:if='{{commentsList[0].length}}'>
+    <view class='comment-head' catchtap='changeComment'>
+      <text class='comment-head-title {{commentsFlag === 0 ? "active" : ""}}' data-flag='0'>全部跟帖</text>
+      <text class='comment-head-title {{commentsFlag === 1 ? "active" : ""}}' data-flag='1'>只看楼主</text>
     </view>
-    <comment-component comment-list='{{commentsList}}'></comment-component>
+    <comment-component
+      comment-list='{{commentsList[commentsFlag]}}'
+      bindtoThumbUp='toThumbUp'
+      bindtoReply='toReply'
+    ></comment-component>
+    <view class='no-msg' hidden='{{commentsList[commentsFlag].length}}'>暂无信息</view>
   </view>
   <view class='comment-input-box'>
-    <input placeholder='评论'  class='comment-input'></input>
-    <button class='comment-btn'>发送</button>
+    <input
+      placeholder='评论'
+      class='comment-input'
+      bindblur='getCommentVal'
+      bindfocus='inputFocus'
+      value='{{commentVal}}'
+      focus='{{focusFlag}}'
+    ></input>
+    <button class='comment-btn' catchtap='sendComment'>发送</button>
   </view>
+  <view class='shape' hidden='{{shapeFlag}}' catchtap='hideShape'></view>
 </view>

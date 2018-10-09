@@ -41,6 +41,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    wx.showLoading({
+      title: '正在加载',
+      mask: true
+    });
+    setTimeout(() => {
+      this.getForum();
+      wx.hideLoading();
+    }, 1000);
   },
 })

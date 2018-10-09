@@ -38,6 +38,7 @@ Page({
       let rs = d.data.data;
       if (d.data.code === '0') {
         wx.setStorageSync('userId', rs.userId);
+        wx.setStorageSync('token', rs.token);
         wx.navigateBack({
           delta:1
         });

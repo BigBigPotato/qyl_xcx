@@ -50,5 +50,6 @@
   font-size: 26rpx;
 }
 .reply-name{
+  margin: 0 10rpx;
   color: #2374e4;
 }

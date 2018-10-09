@@ -149,6 +149,7 @@
 /* 列表 */
 .tag-scroll{
   height: 80rpx;
+  box-sizing: border-box;
   line-height: 80rpx;
   padding: 0 30rpx;
   overflow:hidden;

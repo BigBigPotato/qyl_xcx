@@ -6,7 +6,8 @@
     "pages/article/index",
     "pages/article/reward/reward",
     "pages/login",
-    "pages/forum/index"
+    "pages/forum/index",
+    "pages/photo/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

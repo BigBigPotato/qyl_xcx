@@ -8,16 +8,37 @@
         <text class='author-level'>LV{{item.level ? item.level : 0}}</text>
         <view class='up-time'>{{item.createTime}}</view>
       </view> 
-      <view class='thumb-up'>
+      <view class='thumb-up' catchtap='handleThumbUp' data-id='{{item.commentId}}' data-flag='{{item.isHit}}'>
         <image src='/statics/images/{{thumbIcon[item.isHit]}}' class='thumb-up-icon'></image>
         <text>{{item.hitNum}}</text>
       </view>
     </view>
-    <text class='comment-content'>{{item.content}}</text>
+    <view
+      class='comment-content'
+      catchtap='handleToReply'
+      data-id='{{item.commentId}}'
+      data-parent-id='{{item.userId}}'
+    >{{item.content}}</view>
     <view class='comment-reply' wx:if='{{item.followCommentList.length}}'>
-      <view class='reply-item'  wx:for='{{item.followCommentList}}' wx:for-item='reply' wx:key='{{reply.commentId}}'>
-        <text class='reply-name'>{{reply.followerName}}：</text>
-        <text>{{reply.content}}</text>
+      <view
+        class='reply-item'
+        wx:for='{{item.followCommentList}}'
+        wx:for-item='reply'
+        wx:key='{{reply.ownerId}}'
+        data-id='{{item.commentId}}'
+        data-parent-id='{{reply.followerId}}'
+        catchtap='handleToReply'
+      >
+        <block wx:if='{{reply.followerId === reply.ownerId}}'>
+          <text class='reply-name'>{{reply.followerName}}：</text>
+          <text>{{reply.content}}</text>
+        </block>
+        <block wx:else>
+          <text class='reply-name'>{{reply.followerName}}</text>
+          <text>回复</text>
+          <text class='reply-name'>{{reply.ownerName}}：</text>
+          <text>{{reply.content}}</text>
+        </block>
       </view>
     </view>
   </view>

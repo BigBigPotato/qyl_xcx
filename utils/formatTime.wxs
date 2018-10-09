@@ -1,7 +1,10 @@
 function formatTime (time, format) {
   var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
   var returnArr = [];
-
+  var reg = getRegExp('-', 'g');
+  if (reg.test(time)){
+    time = time.replace(reg,'/');
+  }
   var date = getDate(time);
   returnArr.push(date.getFullYear());
   returnArr.push(formatNumber(date.getMonth() + 1));

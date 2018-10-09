@@ -18,6 +18,17 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    handleThumbUp (e) {
+      let dataset = e.currentTarget.dataset,
+          commentId = dataset.id,
+          thumbFlag = dataset.flag;
+      this.triggerEvent('toThumbUp', { commentId, thumbFlag});
+    },
+    handleToReply (e) {
+      let dataset = e.currentTarget.dataset,
+          commentId = dataset.id,
+          parentId = dataset.parentId;
+      this.triggerEvent('toReply', { commentId, parentId });
+    }
   }
 })
