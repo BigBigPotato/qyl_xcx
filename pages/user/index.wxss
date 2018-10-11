@@ -1,0 +1,48 @@
+/* pages/user/index.wxss */
+@import '/statics/wxss/common.wxss';
+.mt20{
+  margin: 20rpx 0 0;
+}
+.top-head{
+  padding: 0 0 50rpx;
+  text-align: center;
+  background: #c13331;
+  color: #fff;
+  font-size: 22rpx;
+}
+.avatar{
+  width: 114rpx;
+  height: 114rpx;
+}
+.author-level{
+  margin: 0 0 0 20rpx;
+  border-color: #fff;
+}
+.user-msg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10rpx 0 0;
+  font-size: 34rpx;
+}
+.list-item{
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  font-size: 26rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.item-icon{
+  width: 58rpx;
+  height: 58rpx;
+  margin: 0 30rpx 0 0;
+}
+.exit{
+  width: 94%;
+  margin: 100rpx auto 0;
+  background: #c13331;
+  color: #fff;
+  border: none;
+  font-size: 34rpx;
+}

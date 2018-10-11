@@ -1,0 +1,56 @@
+<!--pages/match/detail/index.wxml-->
+<wxs module='format' src='../../../utils/formatTime.wxs' />
+<view>
+  <view wx:if='{{matchStatus === 1 || matchStatus === 9 || matchStatus === 13}}' class='top-head'>
+    <view class='team'>
+      <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
+      <text class='team-name'>{{basicPanel.homeNm}}</text>
+    </view>
+    <view class='match-info'>
+      <view class='text-vs'>vs</view>
+      <view class='match-time'>{{format.formatTime(basicPanel.matchStartTime *1000,'Y-M-D h:m')}}</view>
+      <view class='match-status'>{{status}}</view>
+    </view>
+    <view class='team'>
+      <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
+      <text class='team-name'>{{basicPanel.awayNm}}</text>
+    </view>
+  </view>
+  <view wx:else class='top-head except-no-begin'>
+    <view class='team'>
+      <view class='score'>{{basicPanel.homeScore}}</view>
+      <text class='team-name'>{{basicPanel.homeNm}}</text>
+    </view>
+    <view class='match-info'>
+      <view class='match-time'>{{format.formatTime(basicPanel.matchStartTime *1000,'Y-M-D h:m')}}</view>
+      <view class='match-status'>{{status}}</view>
+    </view>
+    <view class='team'>
+      <view class='score'>{{basicPanel.homeScore}}</view>
+      <text class='team-name'>{{basicPanel.awayNm}}</text>
+    </view>
+  </view>
+  
+  <import src='/template/basic.wxml' />
+  <import src='/template/intelligence.wxml' />
+  <import src='/template/formation.wxml' />
+  <template is='{{tagItem[activeTag]}}' data='{{sendMsg}}'/>
+
+  <view class='bottom-nav'>
+    <view
+      class='nav-item {{activeTag === "0" ? "active" : ""}}'
+      data-tag='0'
+      catchtap='changeTag'
+    >基本面</view>
+    <view
+      class='nav-item {{activeTag === "1" ? "active" : ""}}'
+      data-tag='1'
+      catchtap='changeTag'
+    >情报</view>
+    <view
+      class='nav-item {{activeTag === "2" ? "active" : ""}}'
+      data-tag='2'
+      catchtap='changeTag'
+    >阵容</view>
+  </view>
+</view>

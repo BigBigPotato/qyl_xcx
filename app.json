@@ -8,7 +8,10 @@
     "pages/login",
     "pages/forum/index",
     "pages/photo/index",
-    "pages/forum/subject/index"
+    "pages/forum/subject/index",
+    "pages/match/detail/index",
+    "pages/match/schedule/index",
+    "pages/user/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,6 +40,12 @@
         "text": "论坛",
         "iconPath": "./statics/images/navBottom/dilan-luntan-hui@3x.png",
         "selectedIconPath": "./statics/images/navBottom/dilan-luntan-hong@3x.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "./statics/images/navBottom/dilan-wode-hui@3x.png",
+        "selectedIconPath": "./statics/images/navBottom/dilan-wode-hong@3x.png"
       }
     ]
   }

@@ -1,0 +1,48 @@
+<template name='content-list'>
+  <block wx:if='{{!(infoList.length)}}'>
+    <view>
+      <view class='content-container'>
+        <view class='type-title'>
+          <icon type='success' color='#fff' size='12' class='type-icon'></icon>
+          <text>有利情报</text>
+        </view> 
+        <view class='no-msg'>暂无信息</view>
+      </view>
+      <view class='content-container'>
+        <view class='type-title'>
+          <icon type='clear' color='#fff' size='12' class='type-icon'></icon>
+          <text>不利情报</text>
+        </view> 
+        <view class='no-msg'>暂无信息</view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view wx:for='{{infoList}}' wx:key='{{index}}' class='content-container'>
+      <view class='type-title'>
+        <icon type='{{item.typeNm === "有利情报" ? "success" : "clear"}}' color='#fff' size='12' class='type-icon'></icon>
+        <text>{{item.typeNm}}</text>
+      </view> 
+      <view class='news' wx:for='{{item.info}}' wx:key='{{index}}' wx:for-item='newsList'>
+        {{index}}、{{newsList.info}}
+      </view>
+    </view>
+  </block>
+</template>
+
+<template name='intelligence'>
+  <view class='box-container'>
+    <view class='list-item left'>
+      <view class='item-title'>
+        <text>{{sendMsg.home.teamNm}}</text>
+      </view>
+      <template is='content-list' data='{{infoList:sendMsg.home.infoList}}' />
+    </view>
+    <view class='list-item right'>
+      <view class='item-title'>
+        <text>{{sendMsg.away.teamNm}}</text>
+      </view>
+      <template is='content-list' data='{{infoList:sendMsg.away.infoList}}' />
+    </view>
+  </view>
+</template>

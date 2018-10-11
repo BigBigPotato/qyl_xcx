@@ -56,7 +56,7 @@
     class='battle-swiper'
   >
     <swiper-item wx:for='{{topMatchsList}}' wx:key='{{item.matchId}}'>
-      <view class='battle-item clearfix'>
+      <navigator url='../match/detail/index?id={{item.matchId}}' class='battle-item clearfix'>
         <view class='team pull-left'>
           <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
           <text class='team-name font-hide'>{{item.homeNm}}</text>
@@ -102,7 +102,7 @@
           <image src='/statics/images/icon_team_default.png' class='team-logo'></image>
           <text class='team-name font-hide'>{{item.awayNm}}</text>
         </view>
-      </view>
+      </navigator>
     </swiper-item>
   </swiper>
   <!-- 列表 -->

@@ -8,12 +8,13 @@ Page({
     tagList: [],
     matchesList: [],
     limit: 10,
-    page: 1,
+    page: 0,
     activeTagId: 0,
     activeTagIndex:1,
     collectImg: ['saishi_huilingdang@3x.png', 'saishi_honglingdang@3x.png'],
     pullUpFlag:true,
-    userId: wx.getStorageSync('userId')
+    userId: wx.getStorageSync('userId'),
+    posters:[]
   },
 
   /**
@@ -23,10 +24,10 @@ Page({
     this.getTag();
   },
   getTag () {
-    let paramter = {};
-    paramter.platform = 'web_offical';
-    paramter.locationId = 3;
-    apiMethods.newRequest('listPlatformTag', paramter).then((d) => {
+    let parameter = {};
+    parameter.platform = 'web_offical';
+    parameter.locationId = 3;
+    apiMethods.newRequest('listPlatformTag', parameter).then((d) => {
       // console.log(d.data);
       let rs = d.data.data;
       if (d.data.code === '0') {
@@ -40,30 +41,36 @@ Page({
     });
   },
   getMatches () {
-    let paramter = {},
+    let parameter = {},
         datas = this.data,
         userId = datas.userId;
-    paramter.page = datas.page;
-    paramter.limit = datas.limit;
-    paramter.opid = datas.activeTagId;
-    userId ? (paramter.userId = userId) : '';
-    if (!userId && datas.activeTagId === 3){
-      // wx.navigateTo({
-      //   url: ''//todo
-      // })
+    if (datas.activeTagId >= 0 && datas.activeTagId <= 2) {
+      parameter.page = datas.page + 1;
+      parameter.limit = datas.limit;
     }
-    apiMethods.newRequest('instant2', paramter).then((d) => {
+    parameter.opid = datas.activeTagId;
+    userId ? (parameter.userId = userId) : '';
+    if (!userId && datas.activeTagId === 3){
+      wx.navigateTo({
+        url: '../login'
+      });
+      return;
+    }
+    apiMethods.newRequest('instant2', parameter).then((d) => {
       // console.log(d.data);
       let rs = d.data.data;
       if (d.data.code === '0') {
         if(datas.activeTagId >= 0 && datas.activeTagId <= 2){
           if (rs.matches.length){
             this.setData({
-              matchesList: datas.matchesList.concat(rs.matches)
+              ['matchesList[' + datas.page + ']']: rs.matches,
+              page:parameter.page,
+              posters: rs.posters ? rs.posters : []
             });
           }else{
             this.setData({
-              pullUpFlag: false
+              pullUpFlag: false,
+              posters: rs.posters ? rs.posters : []
             });
           }
         }else{
@@ -72,7 +79,7 @@ Page({
             matchesArr = matchesArr.concat(list.match)
           }
           this.setData({
-            matchesList: matchesArr
+            ['matchesList[' + datas.page + ']']: matchesArr
           });
         }
       }
@@ -93,6 +100,7 @@ Page({
     }
     this.setData({
       matchesList: [],
+      page:0,
       activeTagIndex: dataset.index,
       activeTagId: dataset.id
     });
@@ -105,9 +113,6 @@ Page({
     let page = this.data.page,
         pullUpFlag = this.data.pullUpFlag;
     if(pullUpFlag){
-      this.setData({
-        page: page + 1
-      });
       wx.showLoading({
         title: '正在加载',
         mask: true
@@ -118,4 +123,24 @@ Page({
       }, 1000);
     }
   },
+  collectMatch (e) {
+    let parameter = {},
+        datas = this.data,
+        dataset = e.target.dataset;
+    parameter.matchId = dataset.id;
+    parameter.optType = dataset.flag === 0 ? 1 : 0;
+    parameter.userId = wx.getStorageSync('userId');
+    apiMethods.newRequest('CollectMatche',parameter).then((d) => {
+      // console.log(d.data);
+      if(d.data.code === '0'){
+        let page = this.data.page;
+        this.setData({
+          page:page - 1,
+        });
+        this.getMatches();
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
 })

@@ -1,0 +1,70 @@
+<wxs module='util' src='../utils/util.wxs' />
+<wxs module='format' src='../utils/formatTime.wxs' />
+
+<template name='member-map'>
+  <block wx:for='{{memberMap}}'wx:key='{{item.id}}'>
+    <block wx:if='{{from === 0}}'>
+      <view
+        wx:if='{{item.position !== "SUB" && item.position !== "-" && (item.x !== 0 && item.y !== 0)}}'
+        class='member-container'
+        style='top:{{item.x}}%;left:{{item.y - 10}}%;'
+      >
+        <view class='member-num'>{{item.shirtNumber}}</view>
+        <text class='member-name'>{{item.name}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view
+        wx:if='{{item.position !== "SUB" && item.position !== "-" && (item.x !== 0 && item.y !== 0)}}'
+        class='member-container'
+        style='top:{{item.x}}%;right:{{item.y - 10}}%;'
+      >
+        <view class='member-num'>{{item.shirtNumber}}</view>
+        <text class='member-name'>{{item.name}}</text>
+      </view>
+    </block>
+  </block>
+  <view class='no-msg' hidden='{{memberMap.length}}'>本场暂无对阵数据</view>
+</template>
+
+<template name='injured-table'>
+  <view class='table-row title'>
+    <view class='one'>球员</view>
+    <view class='two'>位置</view>
+    <view class='three'>伤停原因</view>
+    <view class='two'>复出时间</view>
+  </view>
+  <view class='table-row' wx:for='{{injuredList}}' wx:key='{{item.id}}'>
+    <view class='one'>{{item.name}}</view>
+    <view class='two'>{{util.filterPosition(item.position)}}</view>
+    <view class='three'>{{item.reason}}</view>
+    <view class='two'>{{format.formatTime(item.startTime * 1000,'Y/M/D')}}</view>
+  </view>
+  <view class='no-msg' hidden='{{injuredList.length}}'>暂无信息</view>
+</template>
+
+<template name='formation'>
+  <view class='formation-title-box'>
+   <view class='formation-title left'>上一场首发</view>
+   <view class='formation-title right'>上一场首发</view>
+  </view>
+  <view class='formation-map'>
+    <image src='/statics/images/match/saishi_qiuchang_beijing@3x.png' class='map-icon'></image>
+    <view class='map-list-container'> 
+      <view class='map-list list-home'>
+        <template is='member-map' data='{{memberMap:sendMsg.homeList,from:0}}' />
+      </view>
+      <view class='map-list list-away'>
+        <template is='member-map' data='{{memberMap:sendMsg.awayList,from:1}}' />
+      </view>
+    </view>
+  </view>
+  <view class='injured-member'>
+    <view class='table-title'>主队伤停</view>
+    <template is='injured-table' data='{{injuredList:sendMsg.homeInjuryList}}' />
+  </view>
+  <view class='injured-member'>
+    <view class='table-title'>客队伤停</view>
+    <template is='injured-table' data='{{injuredList:sendMsg.awayInjuryList}}' />
+  </view>
+</template>

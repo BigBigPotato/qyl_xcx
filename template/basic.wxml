@@ -1,0 +1,76 @@
+
+<wxs module='format' src='../utils/formatTime.wxs' />
+<template name='basic'>
+  <view>
+    <view class='table-title'>积分排名</view>
+    <view class='table-row title'>
+      <text class='one'>排名</text>
+      <text class='two'>球队</text>
+      <text class='three'>胜/平/负</text>
+      <text class='four'>进/失</text>
+      <text class='five'>积分</text>
+    </view>
+    <view class='table-row' wx:for='{{sendMsg.score}}' wx:key='{{index}}'>
+      <text class='one'>{{item.rank}}</text>
+      <text class='two'>{{item.teamNm}}</text>
+      <text class='three'>{{item.won}}/{{item.drawn}}/{{item.lost}}</text>
+      <text class='four'>{{item.goals}}/{{item.against}}</text>
+      <text class='five'>{{item.pts}}</text>
+    </view>
+    <view class='no-msg' hidden='{{sendMsg.score.length}}'>暂无信息</view>
+  </view>
+
+  <template name='common-table'>
+    <view class='table-row title'>
+      <text class='one'>时间</text>
+      <text class='two'>联赛</text>
+      <text class='three'>比赛</text>
+      <text class='four'>赛果</text>
+    </view>
+    <view class='table-row' wx:for='{{list.battle}}' wx:key='{{index}}'>
+      <text class='one'>{{format.formatTime(item.matchStartTime *1000,'Y-M-D')}}</text>
+      <text class='two'>{{item.eventNm}}</text>
+      <text class='one'>{{item.homeNm}}</text>
+      <text class='two'>{{item.homeScore}} - {{item.awayScore}}</text>
+      <text class='one'>{{item.awayNm}}</text>
+      <block wx:if='{{item.matchRst === -1}}'>
+        <text class='four'>
+          <text class='match-flag lose'>负</text>
+        </text>
+      </block>
+      <block wx:if='{{item.matchRst === 0}}'>
+        <text class='four'>
+          <text class='match-flag dogfall'>平</text>
+        </text>
+      </block>
+      <block wx:if='{{item.matchRst === 1}}'>
+        <text class='four'>
+          <text class='match-flag win'>胜</text>
+        </text>
+      </block>
+    </view>
+    <view class='no-msg' hidden='{{list.battle.length}}'>暂无信息</view>
+  </template>
+
+  <view class='another-table'>
+    <view class='table-title clearfix'>
+      <text>历史交战</text>
+      <text class='pull-right'>{{sendMsg.vs.tolWon}}胜{{sendMsg.vs.tolDrawn}}平{{sendMsg.vs.tolLost}}负</text>
+    </view>
+    <template is='common-table' data='{{list:sendMsg.vs}}'/>
+  </view>
+  <view class='another-table'>
+    <view class='table-title clearfix'>
+      <text>{{sendMsg.homeNm}}</text>
+      <text class='pull-right'>{{sendMsg.homeVs.tolWon}}胜{{sendMsg.homeVs.tolDrawn}}平{{sendMsg.homeVs.tolLost}}负</text>
+    </view>
+    <template is='common-table' data='{{list:sendMsg.homeVs}}'/>
+  </view>
+  <view class='another-table'>
+    <view class='table-title clearfix'>
+      <text>{{sendMsg.awayNm}}</text>
+      <text class='pull-right'>{{sendMsg.awayVs.tolWon}}胜{{sendMsg.awayVs.tolDrawn}}平{{sendMsg.awayVs.tolLost}}负</text>
+    </view>
+    <template is='common-table' data='{{list:sendMsg.awayVs}}'/>
+  </view>
+</template>

@@ -1,0 +1,295 @@
+/* pages/match/detail/index.wxss */
+@import '/statics/wxss/common.wxss';
+page{
+  padding: 0 0 100rpx;
+}
+.no-msg{
+  padding: 60rpx 0;
+  background: #fff;
+}
+
+.top-head{
+  display: flex;
+  justify-content: center;
+  height: 156rpx;
+  padding: 0 0 4rpx;
+  background: #c13331;
+}
+.team{
+  width: 212rpx;
+  height: 100%;
+  padding: 12rpx 0 0;
+  box-sizing: border-box;
+  background: #fff;
+  color: #c13331;
+  font-size: 20rpx;
+  text-align: center;
+}
+.except-no-begin .team{
+  background: none;
+  color: #fff;
+}
+.score{
+  font-size: 50rpx;
+  font-weight: bold;
+}
+.team-logo{
+  width: 86rpx;
+  height: 86rpx;
+}
+.team-name{
+  display: block;
+  margin: 16rpx 0 0;
+}
+.match-info{
+  width: 266rpx;
+  height: 100%;
+  background: linear-gradient(#c13331,rgba(255, 136, 0, 0.993));
+  color: #fff;
+  text-align: center;
+  font-size: 20rpx;
+}
+.except-no-begin .match-info{
+  background: none;
+}
+.text-vs{
+  font-style: italic;
+  font-weight: bold;
+  font-size: 60rpx;
+}
+.match-time{
+  margin: 30rpx 0 0;
+}
+.match-status{
+  margin: 14rpx 0 0;
+}
+.table-title{
+  padding: 20rpx 30rpx;
+  color: #333;
+  font-weight: bold;
+  font-size: 22rpx;
+}
+.table-row{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  font-size: 22rpx;
+  color: #333;
+}
+.table-row.title{
+  color: #999;
+}
+.one{
+  display: inline-block;
+  width: 60rpx;
+}
+.two{
+  display: inline-block;
+  width: 218rpx;
+}
+.three{
+  display: inline-block;
+  width: 218rpx;
+}
+.four{
+  display: inline-block;
+  width: 144rpx;
+}
+.five{
+  display: inline-block;
+  width: 48rpx;
+}
+.another-table .one{
+  width: 158rpx;
+}
+.another-table .two{
+  width: 104rpx;
+}
+.another-table .three{
+  width: 348rpx;
+}
+.another-table .four{
+  width: 80rpx;
+  text-align: center;
+}
+.match-flag{
+  display: inline-block;
+  padding: 2rpx 20rpx;
+  color: #fff;
+  font-size: 16rpx;
+}
+.win{
+  background: #c13331;
+}
+.dogfall{
+  background: #16a635;
+}
+.lose{
+  background: #2374e4;
+}
+/* 情报 */
+.box-container{
+  column-count: 2;
+  column-gap: 0;
+  margin: 20rpx 0 0;
+  font-size: 28rpx;
+  color: #fff;
+}
+.list-item{
+  break-inside: avoid;
+  text-align: center;
+}
+.list-item.left{
+  background: #c13331;
+}
+.list-item.right{
+  background: #2374e4;
+}
+.item-title{
+  padding: 30rpx;
+  font-size: 30rpx;
+}
+.type-title,
+.news{
+  padding: 20rpx;
+  text-align: left;
+}
+.list-item.left .content-container{
+  background: #d95f5e;
+}
+.list-item.right .content-container{
+  background: #4c7fc1;
+}
+.content-container .no-msg{
+  background: inherit;
+  color: #fff;
+}
+.type-icon{
+  margin: 0 10rpx 0 0;
+}
+/* 阵容 */
+.formation-title-box{
+  display: flex;
+  margin: 20rpx 0 0;
+  background: #fff;
+}
+.formation-title{
+  padding: 30rpx 0;
+  flex: 1;
+  font-size: 26rpx;
+  color: #666;
+  text-align: center;
+  border-bottom: 4rpx solid;
+}
+.formation-title.left{
+  border-color: #c13331;
+}
+.formation-title.right{
+  border-color: #2374e4;
+}
+.formation-map{
+  position: relative;
+  height: 402rpx;
+}
+.map-icon{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.map-list-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+.map-list{
+  position: absolute;
+  width: 50%;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.list-home{
+  left: 0;
+}
+.list-away{
+  right: 0;
+}
+.member-container{
+  position: absolute;
+  transform: translateY(-50%);
+  max-width: 80rpx;
+  padding: 10rpx;
+  font-size: 20rpx;
+  word-break: break-all;
+}
+.member-num{
+  width: 34rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  margin: 0 auto 10rpx;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 100%;
+}
+.list-home .member-container{
+  color: #c13331;
+}
+.list-home .member-num{
+  border-color: #c13331;
+}
+.list-away .member-container{
+  color: #2374e4;
+}
+.list-away .member-num{
+  border-color: #2374e4;
+}
+.map-list .no-msg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+  background: none;
+  white-space: nowrap;
+}
+.injured-member .one{
+  width: 170rpx;
+}
+.injured-member .two{
+  width: 110rpx;
+}
+.injured-member .three{
+  width: 308rpx;
+}
+
+
+.bottom-nav{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #fff;
+  font-size: 26rpx;
+  text-align: center;
+  border-top: 1px solid #f2f2f2;
+}
+.nav-item{
+  padding: 30rpx 0;
+  flex: 1;
+  border-right: 1px solid #f2f2f2;
+}
+.nav-item.active{
+  color: #c13331;
+}
+.nav-item:last-child{
+  border:none;
+}

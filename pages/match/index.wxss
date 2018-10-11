@@ -19,6 +19,29 @@
   border-color: #C13331;
   color: #C13331;
 }
+.menu-floor{
+  display: flex;
+  padding: 30rpx 0;
+  font-size: 24rpx;
+  color: #333;
+  background: #fff;
+  text-align: center;
+  border-top: 1px solid #f2f2f2;
+}
+.menu{
+  margin: 0 0 0 40rpx;
+}
+.menu-icon{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 0 10rpx;
+}
+.poster{
+  height: 500rpx;
+  margin: 10rpx 0 0;
+  background-size: cover;
+  background-position: center;
+}
 .battle-item{
   margin: 20rpx 0 0;
   padding: 20rpx 0;
@@ -78,4 +101,9 @@
 }
 .hor-line{
   margin: 0 30rpx;
+}
+.collect-icon{
+  width: 36rpx;
+  height: 38rpx;
+  margin: 10rpx 0 0;
 }

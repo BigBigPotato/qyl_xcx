@@ -36,12 +36,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "photo",
-					"pathName": "pages/photo/index",
+					"name": "user",
+					"pathName": "pages/user/index",
 					"query": ""
 				},
 				{
@@ -58,8 +58,8 @@
 				},
 				{
 					"id": 3,
-					"name": "subject",
-					"pathName": "pages/forum/subject/index",
+					"name": "match",
+					"pathName": "pages/match/index",
 					"query": ""
 				}
 			]

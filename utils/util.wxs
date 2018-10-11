@@ -6,5 +6,22 @@ module.exports = {
   mathRandom: function(){
     var num = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
     return num;
+  },
+  filterPosition:function(path){
+    switch(path){
+      case 'F':
+        path = '前锋';
+        break;
+      case 'M':
+        path = '中锋';
+        break;
+      case 'D':
+        path = '后卫';
+        break;
+      case 'G':
+        path = '守门员';
+        break;
+    }
+    return path;
   }
 }

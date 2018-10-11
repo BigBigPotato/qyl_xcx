@@ -17,4 +17,8 @@ module.exports = {
   "tags":"api/wallpaper/tags",
   "imgs": "api/wallpaper/imgs",
   "channelForumList": "api/news/channelForumList",//单个主题的帖子列表(全部、最新、历史)
+  "CollectMatche": "api/event/CollectMatche",//收藏比赛
+  "basicPanel": "api/event/basicPanel",//基本面
+  "intelligence": "api/event/intelligence",//情报
+  "getSquad": "api/event/getSquad",//阵容
 }

@@ -107,5 +107,5 @@
       </view>
     </view>
   </navigator>
-  <view class='no-msg' wx:if='{{!item.length}}'>暂无信息</view>
+  <view class='no-msg' hidden='{{list.length}}'>暂无信息</view>
 </view>

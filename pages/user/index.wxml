@@ -1,0 +1,20 @@
+<!--pages/user/index.wxml-->
+<view class='top-head'>
+  <image src='/statics/images/defaultAvatar.png' class='avatar'></image>
+  <view class='user-msg'>
+    <text>name</text>
+    <text class='author-level'>LV1</text>
+  </view>
+  <view class='mt20'>这个家伙超级懒什么都没留下</view>
+</view>
+<view>
+  <view class='list-item'>
+    <image src='/statics/images/my_yijianfankui@3x.png' class='item-icon'></image>
+    <text>意见反馈</text>
+  </view> 
+  <view class='list-item'>
+    <image src='/statics/images/my_guanyuwomen@3x.png' class='item-icon'></image>
+    <text>关于我们</text>
+  </view> 
+</view>
+<button class='exit' catchtap='loginOut'>退出登录</button>
