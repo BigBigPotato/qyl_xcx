@@ -1,2 +1,27 @@
 <!--pages/match/schedule/index.wxml-->
-<text>pages/match/schedule/index.wxml</text>
+<wxs module='format' src='../../../utils/formatTime.wxs' />
+<block wx:for='{{matches}}' wx:key='{{index}}'>
+  <view>
+    <view class='title'>{{item.groupType}}</view>
+    <navigator
+      url='../detail/index?id={{item.matchId}}'
+      class='list-item'
+      wx:for='{{item.match}}'
+      wx:for-item='matchList'
+      wx:key='{{index}}'
+    >
+      <text class='time'>{{format.formatTime(matchList.matchTime,'M-D h:m')}}</text>
+      <view class='team-container'>
+        <view class='team'>
+          <text class='font-hide'>{{matchList.homeTeam}}</text>
+          <image src='/statics/images/icon_team_default.png' class='logo'></image>
+        </view>
+        <view class='text-vs'>vs</view>
+        <view class='team'>
+          <image src='/statics/images/icon_team_default.png' class='logo'></image>
+          <text class='font-hide'>{{matchList.awayTeam}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</block>

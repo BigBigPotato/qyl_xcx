@@ -1,5 +1,4 @@
 /* pages/match/detail/index.wxss */
-@import '/statics/wxss/common.wxss';
 page{
   padding: 0 0 100rpx;
 }

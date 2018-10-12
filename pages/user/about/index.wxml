@@ -1,0 +1,5 @@
+<!--pages/user/about/index.wxml-->
+<image src='/statics/images/my_icon_qiuyoule@3x.png' class='logo'></image>
+<view class='content'>
+  <rich-text nodes='{{content}}'></rich-text>
+</view>

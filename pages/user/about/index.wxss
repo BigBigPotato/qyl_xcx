@@ -1,0 +1,19 @@
+/* pages/user/about/index.wxss */
+page{
+  background: #fff;
+}
+.logo{
+  position: relative;
+  top: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 138rpx;
+  height: 138rpx;
+}
+.content{
+  line-height: 2;
+  padding: 50rpx;
+  word-break: break-all;
+  font-size: 28rpx;
+  font-weight: bold;
+}

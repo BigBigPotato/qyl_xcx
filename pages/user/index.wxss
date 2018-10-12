@@ -1,5 +1,4 @@
 /* pages/user/index.wxss */
-@import '/statics/wxss/common.wxss';
 .mt20{
   margin: 20rpx 0 0;
 }

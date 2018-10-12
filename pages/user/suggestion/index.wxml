@@ -1,0 +1,28 @@
+<!--pages/user/suggestion/index.wxml-->
+<view class='texe-container'>
+  <view class='title'>问题及意见</view>
+  <textarea
+    placeholder='请简要描述'
+    class='text-area question'
+    placeholder-class='color'
+    bindinput='questionInput'
+    value='{{question}}'
+  ></textarea>
+</view>
+<view class='texe-container'>
+  <view class='title'>联系方式</view>
+  <input
+    type='number'
+    placeholder='请留下联系方式，方便我们与您联系'
+    class='text-area contact'
+    placeholder-class='color'
+    bindinput='contactInput'
+    value='{{contact}}'
+  ></input>
+</view>
+<button
+  class='up-question'
+  id='{{(question !== "" && contact !== "") ? "active" : ""}}'
+  catchtap='upQuestion'
+>提交</button>
+

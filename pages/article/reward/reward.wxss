@@ -1,5 +1,4 @@
 /* pages/article/reward/reward.wxss */
-@import '/statics/wxss/common.wxss';
 .author{
   text-align: center;
   font-size: 28rpx;

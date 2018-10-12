@@ -11,7 +11,9 @@
     "pages/forum/subject/index",
     "pages/match/detail/index",
     "pages/match/schedule/index",
-    "pages/user/index"
+    "pages/user/index",
+    "pages/user/suggestion/index",
+    "pages/user/about/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

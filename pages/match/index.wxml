@@ -14,7 +14,7 @@
   <!-- 世界杯 -->
   <view wx:if='{{activeTagId === 2}}'>
     <view class='menu-floor'>
-      <navigator class='menu'>
+      <navigator url='./schedule/index' class='menu'>
         <image src='/statics/images/match/saishi_saicheng@3x.png' class='menu-icon'></image>
         <view>赛程</view>
       </navigator>

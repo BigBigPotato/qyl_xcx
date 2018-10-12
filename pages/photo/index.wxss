@@ -1,5 +1,4 @@
 /* pages/photo/index.wxss */
-@import '/statics/wxss/common.wxss';
 .search-container,
 .search-tag{
   padding: 20rpx 30rpx;

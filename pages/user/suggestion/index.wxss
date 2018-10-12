@@ -1,0 +1,42 @@
+/* pages/user/suggestion/index.wxss */
+page{
+  background: #fff;
+}
+.texe-container{
+  padding: 0 30rpx;
+}
+.title{
+  margin: 30rpx 0 20rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.text-area{
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background: #f2f2f2;
+  font-size: 26rpx;
+  border-radius: 6rpx;
+}
+.question{
+  height: 210rpx;
+}
+.contact{
+  height: 64rpx;
+  padding: 0 20rpx;
+}
+.color{
+  color: #c2c2c2;
+}
+.up-question{
+  margin: 60rpx;
+  color: #fff;
+  border: none;
+  outline: none;
+  background: #ccc;
+  font-size: 34rpx;
+  border-radius: 6rpx;
+}
+.up-question#active{
+  background: #c13331;
+}

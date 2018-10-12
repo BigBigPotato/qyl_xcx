@@ -34,11 +34,10 @@ Page({
     paramter.telephone = account;
     paramter.password = md5(pwd);
     apiMethods.newRequest('login', paramter).then((d) => {
-      console.log(d.data);
+      // console.log(d.data);
       let rs = d.data.data;
       if (d.data.code === '0') {
-        wx.setStorageSync('userId', rs.userId);
-        wx.setStorageSync('token', rs.token);
+        wx.setStorageSync('user', rs);
         wx.navigateBack({
           delta:1
         });

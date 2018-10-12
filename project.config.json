@@ -40,8 +40,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "user",
-					"pathName": "pages/user/index",
+					"name": "schedule",
+					"pathName": "pages/match/schedule/index",
 					"query": ""
 				},
 				{

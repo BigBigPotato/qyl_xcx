@@ -1,5 +1,4 @@
 /* pages/login.wxss */
-@import '/statics/wxss/common.wxss';
 page{
   background: #fff;
 }

@@ -1,6 +1,5 @@
 /* components/news/news.wxss */
 @import '/statics/wxss/common.wxss';
-
 .news-container{
   background: #ffffff;
 }

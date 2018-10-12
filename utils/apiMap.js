@@ -21,4 +21,7 @@ module.exports = {
   "basicPanel": "api/event/basicPanel",//基本面
   "intelligence": "api/event/intelligence",//情报
   "getSquad": "api/event/getSquad",//阵容
+  "aboutus":"api/appInfo/aboutus",
+  "saveSuggest": "appInfo/saveSuggest",
+  "findWorldCup": "api/event/findWorldCup",//世界杯赛程
 }

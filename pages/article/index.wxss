@@ -1,5 +1,4 @@
 /* pages/article/index.wxss */
-@import '/statics/wxss/common.wxss';
 .main-container{
   padding: 0 0 140rpx;
 }

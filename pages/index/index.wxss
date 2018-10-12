@@ -1,4 +1,4 @@
-@import '/statics/wxss/common.wxss';
+
 /* banner */
 .swiper-box{
   position: relative;

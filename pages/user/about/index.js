@@ -1,29 +1,27 @@
-// pages/match/schedule/index.js
-var apiMethods = require('../../../utils/apiMethods.js');
+// pages/user/about/index.js
+const apiMethods = require('../../../utils/apiMethods.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    matches:[]
+    content:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getSchedule();
+    this.getAboutUs();
   },
-  getSchedule () {
-    let parameter = {};
-    parameter.version = '2_0';
-    apiMethods.newRequest('findWorldCup', parameter).then((d) => {
+  getAboutUs () {
+    apiMethods.newRequest('aboutus', {}).then((d) => {
       // console.log(d.data);
       let rs = d.data.data;
       if (d.data.code === '0') {
         this.setData({
-          matches: rs.matches
+          content:rs.content
         });
       }
     }).catch((err) => {

@@ -1,5 +1,4 @@
 /* pages/forum/subject/index.wxss */
-@import '/statics/wxss/common.wxss';
 .top-header{
   position: relative;
   height: 132rpx;

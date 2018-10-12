@@ -1,5 +1,4 @@
 /* pages/match/index.wxss */
-@import '/statics/wxss/common.wxss';
 .tag-scroll{
   height: 80rpx;
   line-height: 80rpx;

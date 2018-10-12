@@ -1,5 +1,4 @@
 /* pages/forum/index.wxss */
-@import '/statics/wxss/common.wxss';
 .forum-item-container{
   padding: 20rpx;
   background: #fff;
